@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Hành trình học tập của Huỳnh Công Khánh">
+
+    <title>Huỳnh Công Khánh | Học tập</title>
+
+    <!-- FONT -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- ICON -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            background: #ffffff;
+            color: #0a2342;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            width: 100%;
+            height: 92px;
+
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+
+            background:
+                rgba(255, 255, 255, 0.96);
+
+            border-bottom:
+                1px solid #e8eef5;
+
+            box-shadow:
+                0 4px 20px
+                rgba(17, 58, 95, 0.05);
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        .header-inner {
+            width: min(1500px, 94%);
+            height: 100%;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+
+            gap: 35px;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo-box {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1598ed,
+                    #0860b6
+                );
+
+            color: white;
+
+            font-size: 25px;
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px
+                rgba(8, 96, 182, 0.18);
+        }
+
+
+        .logo-name {
+            color: #073c74;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            white-space: nowrap;
+
+            letter-spacing: 0.1px;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .nav {
+            margin-left: auto;
+
+            display: flex;
+            align-items: center;
+
+            gap: 3px;
+        }
+
+
+        .nav a {
+            position: relative;
+
+            padding: 12px 11px;
+
+            border-radius: 10px;
+
+            color: #52677d;
+
+            font-size: 13.5px;
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition:
+                color 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        .nav a:hover {
+            color: #0767c2;
+            background: #f1f7fd;
+        }
+
+
+        .nav a.active {
+            color: #0867c3;
+            background: #edf6ff;
+        }
+
+
+        .nav a.active::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            bottom: -17px;
+
+            width: 24px;
+            height: 3px;
+
+            transform: translateX(-50%);
+
+            border-radius: 10px;
+
+            background: #0b83df;
+        }
+
+
+        /* =====================================================
+           CONTACT BUTTON
+        ===================================================== */
+
+        .contact-btn {
+            margin-left: 8px;
+
+            padding: 13px 19px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            flex-shrink: 0;
+
+            border-radius: 100px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1596e9,
+                    #0960b5
+                );
+
+            color: white;
+
+            font-size: 13.5px;
+            font-weight: 700;
+
+            box-shadow:
+                0 8px 20px
+                rgba(9, 96, 181, 0.2);
+
+            transition: 0.25s ease;
+        }
+
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(9, 96, 181, 0.27);
+        }
+
+
+        /* =====================================================
+           MOBILE MENU BUTTON
+        ===================================================== */
+
+        .menu-toggle {
+            display: none;
+
+            width: 46px;
+            height: 46px;
+
+            margin-left: auto;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #e1eaf3;
+
+            border-radius: 12px;
+
+            background: #ffffff;
+
+            color: #07589f;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 625px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 80% 28%,
+                    rgba(29, 147, 231, 0.15),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    120deg,
+                    #ffffff 0%,
+                    #ffffff 43%,
+                    #eef8ff 100%
+                );
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            right: -300px;
+            top: -330px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(13, 125, 214, 0.06);
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 470px;
+            height: 470px;
+
+            left: -300px;
+            bottom: -340px;
+
+            border-radius: 50%;
+
+            border:
+                75px solid
+                rgba(11, 112, 202, 0.035);
+        }
+
+
+        .hero-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr 0.9fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+
+        /* =====================================================
+           HERO LEFT
+        ===================================================== */
+
+        .eyebrow {
+            margin-bottom: 21px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            color: #496982;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+        }
+
+
+        .eyebrow::after {
+            content: "";
+
+            width: 50px;
+            height: 1px;
+
+            background: #7890a7;
+        }
+
+
+        .hero h1 {
+            margin-bottom: 28px;
+
+            color: #071c38;
+
+            font-size:
+                clamp(55px, 6vw, 82px);
+
+            font-weight: 800;
+
+            line-height: 0.97;
+
+            letter-spacing: -4px;
+        }
+
+
+        .hero h1 span {
+            display: block;
+
+            color: #0862b9;
+        }
+
+
+        .hero-description {
+            max-width: 570px;
+
+            padding-left: 20px;
+
+            border-left:
+                4px solid #0781db;
+
+            color: #5b7086;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           HERO RIGHT
+        ===================================================== */
+
+        .hero-art {
+            min-height: 430px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .art-circle {
+            width: 360px;
+            height: 360px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #f7fcff,
+                    #dcefff
+                );
+
+            box-shadow:
+                0 30px 80px
+                rgba(16, 75, 130, 0.13);
+        }
+
+
+        .art-circle::before {
+            content: "";
+
+            position: absolute;
+
+            width: 290px;
+            height: 290px;
+
+            border:
+                1px dashed
+                rgba(8, 104, 192, 0.27);
+
+            border-radius: 50%;
+        }
+
+
+        .main-icon {
+            width: 150px;
+            height: 150px;
+
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 38px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #1488df,
+                    #064b95
+                );
+
+            color: white;
+
+            font-size: 63px;
+
+            box-shadow:
+                0 25px 55px
+                rgba(4, 76, 145, 0.27);
+        }
+
+
+        .float-icon {
+            width: 66px;
+            height: 66px;
+
+            position: absolute;
+            z-index: 5;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: white;
+
+            color: #0877d3;
+
+            font-size: 24px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(24, 71, 114, 0.15);
+        }
+
+
+        .float-1 {
+            top: 15px;
+            left: 20px;
+        }
+
+
+        .float-2 {
+            right: 0;
+            top: 105px;
+        }
+
+
+        .float-3 {
+            left: 50px;
+            bottom: 18px;
+        }
+
+
+        /* =====================================================
+           SCHOOL CARD
+        ===================================================== */
+
+        .school-section {
+            position: relative;
+            z-index: 10;
+
+            margin-top: -58px;
+        }
+
+
+        .school-card {
+            display: grid;
+
+            grid-template-columns:
+                74px 1fr 1px 1fr;
+
+            gap: 26px;
+
+            align-items: center;
+
+            padding: 26px 31px;
+
+            border:
+                1px solid #e3edf6;
+
+            border-radius: 22px;
+
+            background:
+                rgba(255, 255, 255, 0.98);
+
+            box-shadow:
+                0 20px 60px
+                rgba(16, 60, 105, 0.12);
+        }
+
+
+        .school-icon {
+            width: 72px;
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #1789de,
+                    #06427e
+                );
+
+            color: white;
+
+            font-size: 30px;
+        }
+
+
+        .school-name h3 {
+            margin-bottom: 5px;
+
+            color: #092644;
+
+            font-size: 20px;
+        }
+
+
+        .school-name p {
+            color: #71849a;
+
+            font-size: 13px;
+        }
+
+
+        .divider {
+            width: 1px;
+            height: 50px;
+
+            background: #d5e0ea;
+        }
+
+
+        .school-description {
+            color: #52677e;
+
+            font-size: 14px;
+
+            line-height: 1.75;
+        }
+
+
+        /* =====================================================
+           LEARNING
+        ===================================================== */
+
+        .learning {
+            padding: 125px 0 105px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #f6faff
+                );
+        }
+
+
+        .section-heading {
+            max-width: 780px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .section-heading h2 {
+            margin-bottom: 18px;
+
+            color: #071d39;
+
+            font-size:
+                clamp(36px, 4vw, 50px);
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+        }
+
+
+        .section-heading p {
+            color: #60748a;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        .section-heading strong {
+            color: #0b5ca7;
+        }
+
+
+        /* =====================================================
+           CARDS
+        ===================================================== */
+
+        .learning-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 21px;
+        }
+
+
+        .learning-card {
+            min-height: 295px;
+
+            position: relative;
+
+            padding: 29px;
+
+            overflow: hidden;
+
+            border:
+                1px solid #e4edf6;
+
+            border-radius: 21px;
+
+            background: white;
+
+            box-shadow:
+                0 12px 40px
+                rgba(25, 65, 105, 0.07);
+
+            transition: 0.3s ease;
+        }
+
+
+        .learning-card:hover {
+            transform: translateY(-9px);
+
+            border-color: #c8e4f8;
+
+            box-shadow:
+                0 25px 55px
+                rgba(25, 65, 105, 0.13);
+        }
+
+
+        .card-number {
+            position: absolute;
+
+            right: 21px;
+            top: 12px;
+
+            color: #edf3f8;
+
+            font-size: 55px;
+            font-weight: 800;
+        }
+
+
+        .card-icon {
+            width: 59px;
+            height: 59px;
+
+            position: relative;
+            z-index: 2;
+
+            margin-bottom: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: #e9f5ff;
+
+            color: #0879d7;
+
+            font-size: 25px;
+        }
+
+
+        .learning-card h3 {
+            position: relative;
+            z-index: 2;
+
+            margin-bottom: 12px;
+
+            color: #06477f;
+
+            font-size: 18px;
+        }
+
+
+        .learning-card p {
+            position: relative;
+            z-index: 2;
+
+            color: #63768b;
+
+            font-size: 14px;
+
+            line-height: 1.75;
+        }
+
+
+        .learning-card::after {
+            content: "";
+
+            position: absolute;
+
+            left: 29px;
+            bottom: 19px;
+
+            width: 55px;
+            height: 3px;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #075dff,
+                    #22b9ff
+                );
+
+            transition: 0.3s;
+        }
+
+
+        .learning-card:hover::after {
+            width: 105px;
+        }
+
+
+        /* =====================================================
+           JOURNEY
+        ===================================================== */
+
+        .journey {
+            padding: 105px 0;
+
+            position: relative;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #05172d,
+                    #0a315b
+                );
+        }
+
+
+        .journey::before {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            right: -260px;
+            top: -260px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(34, 145, 235, 0.07);
+        }
+
+
+        .journey-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                0.9fr 1.1fr;
+
+            gap: 90px;
+
+            align-items: center;
+        }
+
+
+        .journey .eyebrow {
+            color: #66b8ff;
+        }
+
+
+        .journey .eyebrow::after {
+            background: #4083bd;
+        }
+
+
+        .journey h2 {
+            margin-bottom: 22px;
+
+            font-size:
+                clamp(36px, 4vw, 50px);
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+        }
+
+
+        .journey-description {
+            color: #a8bbce;
+
+            font-size: 15px;
+
+            line-height: 1.85;
+        }
+
+
+        /* =====================================================
+           TIMELINE
+        ===================================================== */
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+
+        .timeline-item {
+            position: relative;
+
+            padding:
+                24px 25px
+                24px 76px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.09);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255, 255, 255, 0.055);
+
+            transition: 0.3s ease;
+        }
+
+
+        .timeline-item:hover {
+            transform: translateX(6px);
+
+            background:
+                rgba(255, 255, 255, 0.08);
+        }
+
+
+        .timeline-icon {
+            width: 32px;
+            height: 32px;
+
+            position: absolute;
+
+            left: 23px;
+            top: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #1286e6;
+
+            color: white;
+
+            font-size: 12px;
+
+            box-shadow:
+                0 0 0 7px
+                rgba(18, 134, 230, 0.13);
+        }
+
+
+        .timeline-item span {
+            color: #67b8ff;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .timeline-item h3 {
+            margin: 6px 0;
+
+            font-size: 17px;
+        }
+
+
+        .timeline-item p {
+            color: #a1b4c8;
+
+            font-size: 13px;
+
+            line-height: 1.65;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            padding: 32px 20px;
+
+            text-align: center;
+
+            background: #041326;
+
+            color: #8498ae;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1200px) {
+
+            .header-inner {
+                width: 95%;
+                gap: 20px;
+            }
+
+            .logo-name {
+                display: none;
+            }
+
+            .nav a {
+                padding: 11px 8px;
+                font-size: 12.5px;
+            }
+        }
+
+
+        @media (max-width: 950px) {
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-art {
+                display: none;
+            }
+
+            .hero {
+                min-height: 570px;
+            }
+
+            .learning-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .journey-grid {
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+            }
+
+            .school-card {
+                grid-template-columns:
+                    74px 1fr;
+            }
+
+            .divider,
+            .school-description {
+                display: none;
+            }
+
+
+            /* MOBILE NAV */
+
+            .nav,
+            .contact-btn {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo-name {
+                display: block;
+            }
+
+            .header {
+                height: 82px;
+            }
+
+            .nav.open {
+                display: flex;
+
+                position: absolute;
+
+                top: 82px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 14px 5% 20px;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 3px;
+
+                background: white;
+
+                border-top:
+                    1px solid #edf1f5;
+
+                box-shadow:
+                    0 15px 30px
+                    rgba(20, 55, 90, 0.1);
+            }
+
+            .nav.open a {
+                width: 100%;
+
+                padding: 13px 15px;
+            }
+
+            .nav a.active::after {
+                display: none;
+            }
+
+            .nav.open .mobile-contact {
+                margin-top: 5px;
+
+                color: white;
+
+                background:
+                    linear-gradient(
+                        135deg,
+                        #1596e9,
+                        #0960b5
+                    );
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .header-inner {
+                width: 92%;
+            }
+
+            .logo-box {
+                width: 48px;
+                height: 48px;
+
+                border-radius: 13px;
+
+                font-size: 21px;
+            }
+
+            .logo-name {
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 530px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .school-section {
+                margin-top: -42px;
+            }
+
+            .school-card {
+                padding: 18px;
+
+                gap: 15px;
+            }
+
+            .school-icon {
+                width: 58px;
+                height: 58px;
+
+                font-size: 23px;
+            }
+
+            .school-name h3 {
+                font-size: 15px;
+            }
+
+            .school-name p {
+                font-size: 11px;
+            }
+
+            .learning {
+                padding:
+                    100px 0 80px;
+            }
+
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey {
+                padding: 80px 0;
+            }
+
+            .timeline-item {
+                padding:
+                    22px 20px
+                    22px 70px;
+            }
+        }
+
+
+        @media (max-width: 400px) {
+
+            .logo-name {
+                max-width: 150px;
+
+                white-space: normal;
+
+                line-height: 1.25;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+
+        <!-- LOGO -->
+
+        <a href="index.html"
+           class="logo">
+
+            <div class="logo-box">
+                HK
+            </div>
+
+            <span class="logo-name">
+                HUỲNH CÔNG KHÁNH
+            </span>
+
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav class="nav"
+             id="navigation">
+
+            <a href="index.html">
+                Trang chủ
+            </a>
+
+            <a href="about.html">
+                Giới thiệu
+            </a>
+
+            <a href="education.html"
+               class="active">
+                Học tập
+            </a>
+
+            <a href="skills.html">
+                Kỹ năng
+            </a>
+
+            <a href="projects.html">
+                Hoạt động
+            </a>
+
+            <a href="interests.html">
+                Sở thích
+            </a>
+
+            <a href="gallery.html">
+                Thư viện
+            </a>
+
+            <!-- CHỈ HIỆN TRONG MENU MOBILE -->
+
+            <a href="contact.html"
+               class="mobile-contact">
+                Liên hệ
+            </a>
+
+        </nav>
+
+
+        <!-- CONTACT -->
+
+        <a href="contact.html"
+           class="contact-btn">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            Liên hệ
+
+        </a>
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Mở menu">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="container hero-grid">
+
+
+            <!-- LEFT -->
+
+            <div>
+
+                <div class="eyebrow">
+                    Education
+                </div>
+
+                <h1>
+
+                    Hành trình
+
+                    <span>
+                        học tập
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Quá trình học tập và những lĩnh vực
+                    kiến thức tôi đang từng bước khám phá,
+                    phát triển và hoàn thiện mỗi ngày.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- RIGHT -->
+
+            <div class="hero-art">
+
+
+                <div class="art-circle">
+
+                    <div class="main-icon">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="float-icon float-1">
+
+                    <i class="fa-solid fa-code"></i>
+
+                </div>
+
+
+                <div class="float-icon float-2">
+
+                    <i class="fa-solid fa-microchip"></i>
+
+                </div>
+
+
+                <div class="float-icon float-3">
+
+                    <i class="fa-solid fa-database"></i>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SCHOOL
+    ====================================================== -->
+
+    <section class="school-section">
+
+        <div class="container">
+
+            <div class="school-card">
+
+
+                <div class="school-icon">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                </div>
+
+
+                <div class="school-name">
+
+                    <h3>
+                        Học viện Hàng không Việt Nam
+                    </h3>
+
+                    <p>
+                        Vietnam Aviation Academy (VAA)
+                    </p>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+
+                <div class="school-description">
+
+                    Nơi tôi đang xây dựng nền tảng kiến thức,
+                    phát triển kỹ năng và từng bước định hướng
+                    con đường nghề nghiệp trong tương lai.
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LEARNING
+    ====================================================== -->
+
+    <section class="learning">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    My Learning
+                </div>
+
+
+                <h2>
+                    Những gì tôi đang học
+                </h2>
+
+
+                <p>
+
+                    Hiện tại tôi đang theo học ngành
+
+                    <strong>
+                        Trí tuệ nhân tạo & Internet vạn vật
+                    </strong>
+
+                    tại Học viện Hàng không Việt Nam.
+
+                    Quá trình học giúp tôi xây dựng nền tảng
+                    về công nghệ, lập trình, dữ liệu và
+                    tư duy giải quyết vấn đề.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="learning-grid">
+
+
+                <!-- 01 -->
+
+                <article class="learning-card">
+
+                    <span class="card-number">
+                        01
+                    </span>
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                    </div>
+
+                    <h3>
+                        Trí tuệ nhân tạo
+                    </h3>
+
+                    <p>
+
+                        Từng bước xây dựng nền tảng về AI,
+                        thuật toán và cách công nghệ
+                        có thể giải quyết những vấn đề
+                        trong thực tế.
+
+                    </p>
+
+                </article>
+
+
+
+                <!-- 02 -->
+
+                <article class="learning-card">
+
+                    <span class="card-number">
+                        02
+                    </span>
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-wifi"></i>
+
+                    </div>
+
+                    <h3>
+                        Internet vạn vật
+                    </h3>
+
+                    <p>
+
+                        Tìm hiểu sự kết nối giữa thiết bị,
+                        dữ liệu, cảm biến và các hệ thống
+                        thông minh trong môi trường IoT.
+
+                    </p>
+
+                </article>
+
+
+
+                <!-- 03 -->
+
+                <article class="learning-card">
+
+                    <span class="card-number">
+                        03
+                    </span>
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-code"></i>
+
+                    </div>
+
+                    <h3>
+                        Lập trình
+                    </h3>
+
+                    <p>
+
+                        Phát triển nền tảng lập trình,
+                        tư duy thuật toán và khả năng
+                        xây dựng các ứng dụng công nghệ.
+
+                    </p>
+
+                </article>
+
+
+
+                <!-- 04 -->
+
+                <article class="learning-card">
+
+                    <span class="card-number">
+                        04
+                    </span>
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-database"></i>
+
+                    </div>
+
+                    <h3>
+                        Cơ sở dữ liệu
+                    </h3>
+
+                    <p>
+
+                        Tìm hiểu cách tổ chức, lưu trữ,
+                        quản lý và khai thác dữ liệu
+                        trong các hệ thống phần mềm.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         JOURNEY
+    ====================================================== -->
+
+    <section class="journey">
+
+        <div class="container journey-grid">
+
+
+            <!-- LEFT -->
+
+            <div>
+
+                <div class="eyebrow">
+                    My Journey
+                </div>
+
+
+                <h2>
+
+                    Học hỏi để tạo nên
+                    phiên bản tốt hơn mỗi ngày.
+
+                </h2>
+
+
+                <p class="journey-description">
+
+                    Với tôi, học tập không chỉ là hoàn thành
+                    chương trình tại trường đại học.
+
+                    Đó còn là quá trình khám phá công nghệ,
+                    rèn luyện tư duy, trải nghiệm những điều mới
+                    và từng bước xác định con đường
+                    phù hợp với bản thân.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- RIGHT -->
+
+            <div class="timeline">
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon">
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </div>
+
+                    <span>
+                        NỀN TẢNG
+                    </span>
+
+                    <h3>
+                        Xây dựng kiến thức cơ bản
+                    </h3>
+
+                    <p>
+
+                        Lập trình, thuật toán,
+                        cơ sở dữ liệu và tư duy
+                        giải quyết vấn đề.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+
+                    <span>
+                        HIỆN TẠI
+                    </span>
+
+                    <h3>
+                        Khám phá AI & IoT
+                    </h3>
+
+                    <p>
+
+                        Tiếp cận các công nghệ thông minh
+                        và tìm hiểu khả năng ứng dụng
+                        chúng trong thực tế.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon">
+
+                        <i class="fa-solid fa-rocket"></i>
+
+                    </div>
+
+                    <span>
+                        TƯƠNG LAI
+                    </span>
+
+                    <h3>
+                        Biến kiến thức thành sản phẩm
+                    </h3>
+
+                    <p>
+
+                        Hướng tới việc xây dựng các dự án
+                        thực tế và phát triển kỹ năng
+                        nghề nghiệp trong lĩnh vực công nghệ.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    © 2026 Huỳnh Công Khánh · Personal Website
+
+</footer>
+
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<script>
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navigation =
+        document.getElementById("navigation");
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            navigation.classList.toggle("open");
+
+
+            const icon =
+                menuToggle.querySelector("i");
+
+
+            if (
+                navigation.classList.contains("open")
+            ) {
+
+                icon.classList.remove("fa-bars");
+
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+            }
+
+        }
+    );
+
+
+    /* Đóng menu sau khi chọn trang */
+
+    const navLinks =
+        navigation.querySelectorAll("a");
+
+
+    navLinks.forEach(
+        function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    navigation.classList.remove("open");
+
+                }
+            );
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
