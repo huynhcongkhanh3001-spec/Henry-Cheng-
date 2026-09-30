@@ -2,375 +2,1588 @@
 <html lang="vi">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Huỳnh Công Khánh | Sở thích</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =========================================================
+           01. RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8fc;
+            color: #0b3262;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           02. HEADER
+        ========================================================= */
+
+        .site-header {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            width: min(1370px, 90%);
+            min-height: 70px;
+
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border: 1px solid rgba(255, 255, 255, .85);
+            border-radius: 17px;
+
+            box-shadow:
+                0 10px 35px rgba(11, 50, 98, .09);
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            flex-shrink: 0;
+        }
+
+        .logo-mark {
+            font-size: 32px;
+            font-weight: 900;
+
+            line-height: 1;
+
+            letter-spacing: -4px;
+
+            color: #0a7bdd;
+        }
+
+        .logo-name {
+            color: #0b3262;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+
+        /* NAVIGATION */
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 3px;
+        }
+
+        .menu a {
+            position: relative;
+
+            padding: 11px 14px;
+
+            border-radius: 11px;
+
+            color: #173b67;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            transition: .25s ease;
+        }
+
+        .menu a:hover {
+            color: #0874d6;
+            background: #edf6ff;
+        }
+
+        .menu a.active {
+            color: #0769cd;
+            background: #e1efff;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 11px 15px;
+
+            color: #075db5;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            white-space: nowrap;
+
+            transition: .25s ease;
+        }
+
+        .contact-link:hover {
+            color: #0899e9;
+        }
+
+
+        /* =========================================================
+           03. HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 430px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(246,250,254,.99) 0%,
+                    rgba(246,250,254,.96) 28%,
+                    rgba(246,250,254,.70) 43%,
+                    rgba(246,250,254,.18) 69%,
+                    rgba(246,250,254,.04) 100%
+                ),
+                url("images/interests-hero.jpg")
+                center / cover no-repeat;
+        }
+
+
+        /* đường cong phía dưới hero */
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: -5%;
+            right: -5%;
+            bottom: -185px;
+
+            height: 255px;
+
+            border-radius: 50% 50% 0 0 / 35% 35% 0 0;
+
+            background: #f4f8fc;
+
+            z-index: 2;
+        }
+
+
+        .hero-container {
+            position: relative;
+            z-index: 5;
+
+            width: min(1370px, 90%);
+
+            margin: auto;
+
+            padding-top: 125px;
+        }
+
+
+        /* LABEL */
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 10px;
+
+            color: #174673;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 3.5px;
+        }
+
+        .eyebrow::after {
+            content: "";
+
+            width: 48px;
+            height: 1px;
+
+            background: #7798ba;
+        }
+
+
+        /* HERO TITLE */
+
+        .hero h1 {
+            max-width: 610px;
+
+            color: #082f61;
+
+            font-size: clamp(44px, 5vw, 63px);
+            font-weight: 800;
+
+            line-height: 1;
+
+            letter-spacing: -2.5px;
+        }
+
+        .hero h1 span {
+            color: #1765c8;
+        }
+
+
+        .hero-description {
+            max-width: 510px;
+
+            margin-top: 18px;
+
+            color: #3e6081;
+
+            font-size: 17px;
+
+            line-height: 1.6;
+        }
+
+
+        /* DECORATIVE TEXT */
+
+        .hero-script {
+            position: absolute;
+
+            top: 145px;
+            right: 5%;
+
+            color: rgba(255,255,255,.93);
+
+            font-family: cursive;
+            font-size: 31px;
+            font-style: italic;
+
+            line-height: 1.15;
+
+            text-align: center;
+
+            transform: rotate(-7deg);
+        }
+
+        .hero-script span {
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 56px;
+        }
+
+
+        /* =========================================================
+           04. INTEREST SECTION
+        ========================================================= */
+
+        .interests-section {
+            position: relative;
+            z-index: 10;
+
+            margin-top: -80px;
+
+            padding-bottom: 22px;
+        }
+
+        .container {
+            width: min(1440px, 94%);
+            margin: auto;
+        }
+
+
+        /* SECTION HEADING */
+
+        .section-heading {
+            margin: 0 12px 20px;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 4px;
+
+            color: #174673;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+        }
+
+        .section-label::after {
+            content: "";
+
+            width: 45px;
+            height: 1px;
+
+            background: #7b9bbc;
+        }
+
+        .section-heading h2 {
+            color: #082f61;
+
+            font-size: 32px;
+            font-weight: 800;
+
+            line-height: 1.2;
+        }
+
+        .section-heading p {
+            margin-top: 5px;
+
+            color: #506d8a;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           05. INTEREST GRID
+        ========================================================= */
+
+        .interest-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 17px;
+        }
+
+
+        /* =========================================================
+           06. INTEREST CARD
+        ========================================================= */
+
+        .interest-card {
+            position: relative;
+
+            min-width: 0;
+            min-height: 255px;
+
+            overflow: hidden;
+
+            padding: 24px;
+
+            display: flex;
+            flex-direction: column;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #ffffff 67%,
+                    #f1f7fe 100%
+                );
+
+            border: 1px solid #e0eaf5;
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(11, 53, 98, .07);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease,
+                border-color .3s ease;
+        }
+
+
+        /* LARGE DECORATIVE CIRCLE */
+
+        .interest-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            right: -80px;
+            bottom: -100px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20, 126, 220, .10),
+                    rgba(20, 126, 220, .015)
+                );
+
+            transition: .4s ease;
+        }
+
+
+        /* SMALL DECORATIVE CIRCLE */
+
+        .interest-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 95px;
+            height: 95px;
+
+            right: 45px;
+            top: -55px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(20, 126, 220, .035);
+        }
+
+
+        .interest-card:hover {
+            transform: translateY(-7px);
+
+            border-color: #b8d7f3;
+
+            box-shadow:
+                0 20px 45px rgba(11, 53, 98, .13);
+        }
+
+        .interest-card:hover::before {
+            transform: scale(1.15);
+        }
+
+
+        /* =========================================================
+           07. CARD TOP
+        ========================================================= */
+
+        .card-top {
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* ICON */
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+
+            flex: 0 0 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0759bb,
+                    #1685e2
+                );
+
+            color: #ffffff;
+
+            font-size: 22px;
+
+            box-shadow:
+                0 9px 20px rgba(7, 91, 187, .20);
+        }
+
+
+        /* CATEGORY */
+
+        .card-category {
+            color: #164474;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 2.7px;
+        }
+
+
+        /* =========================================================
+           08. CARD CONTENT
+        ========================================================= */
+
+        .card-title {
+            position: relative;
+            z-index: 5;
+
+            margin-bottom: 8px;
+
+            color: #082f61;
+
+            font-size: 21px;
+            font-weight: 800;
+
+            line-height: 1.25;
+        }
+
+
+        .card-description {
+            position: relative;
+            z-index: 5;
+
+            width: 100%;
+            max-width: 100%;
+
+            color: #506e8d;
+
+            font-size: 13px;
+
+            line-height: 1.62;
+        }
+
+
+        /* =========================================================
+           09. TAGS
+        ========================================================= */
+
+        .tags {
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: auto;
+            padding-top: 17px;
+        }
+
+
+        .tags span {
+            padding: 6px 13px;
+
+            border: 1px solid #deebf9;
+            border-radius: 999px;
+
+            background: #ebf4ff;
+
+            color: #1763ae;
+
+            font-size: 10px;
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================================
+           10. INDIVIDUAL CARD ACCENTS
+        ========================================================= */
+
+        .interest-card:nth-child(1) {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #ffffff 66%,
+                    #edf7ff 100%
+                );
+        }
+
+
+        .interest-card:nth-child(2) {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #ffffff 66%,
+                    #eef7ff 100%
+                );
+        }
+
+
+        .interest-card:nth-child(3) {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #ffffff 66%,
+                    #f1f6fb 100%
+                );
+        }
+
+
+        .interest-card:nth-child(4) {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #ffffff 66%,
+                    #edf7fa 100%
+                );
+        }
+
+
+        .interest-card:nth-child(5) {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #ffffff 66%,
+                    #fff8ee 100%
+                );
+        }
+
+
+        .interest-card:nth-child(6) {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #ffffff 66%,
+                    #f1f5fa 100%
+                );
+        }
+
+
+        /* =========================================================
+           11. BOTTOM BANNER
+        ========================================================= */
+
+        .explore-section {
+            padding: 0 0 45px;
+        }
+
+
+        .explore-banner {
+            position: relative;
+
+            width: min(1440px, 94%);
+            min-height: 155px;
+
+            margin: auto;
+
+            overflow: hidden;
+
+            padding: 30px 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 35px;
+
+            border-radius: 19px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5, 45, 91, .96) 0%,
+                    rgba(6, 62, 121, .88) 50%,
+                    rgba(7, 72, 139, .78) 100%
+                ),
+                url("images/interests-banner.jpg")
+                center / cover no-repeat;
+
+            color: #ffffff;
+
+            box-shadow:
+                0 15px 38px rgba(7, 48, 91, .15);
+        }
+
+
+        /* decoration */
+
+        .explore-banner::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            right: 25%;
+            top: -190px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.045);
+        }
+
+
+        .banner-content {
+            position: relative;
+            z-index: 5;
+
+            max-width: 600px;
+        }
+
+
+        .banner-label {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 5px;
+
+            color: rgba(255,255,255,.83);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+        }
+
+
+        .banner-label::after {
+            content: "";
+
+            width: 48px;
+            height: 1px;
+
+            background: rgba(255,255,255,.65);
+        }
+
+
+        .banner-content h2 {
+            font-size: 29px;
+            font-weight: 800;
+
+            line-height: 1.2;
+        }
+
+
+        .banner-content p {
+            max-width: 520px;
+
+            margin-top: 6px;
+
+            color: rgba(255,255,255,.83);
+
+            font-size: 13px;
+        }
+
+
+        /* BUTTONS */
+
+        .banner-actions {
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+        }
+
+
+        .banner-btn {
+            min-width: 175px;
+
+            padding: 13px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            border-radius: 12px;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            transition: .25s ease;
+        }
+
+
+        .banner-btn.primary {
+            color: white;
+
+            background: #086bd0;
+
+            border: 1px solid #7cbcff;
+
+            box-shadow:
+                0 8px 20px rgba(0, 57, 130, .24);
+        }
+
+
+        .banner-btn.secondary {
+            color: #082f61;
+
+            background: rgba(255,255,255,.96);
+
+            border: 1px solid white;
+        }
+
+
+        .banner-btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================================
+           12. FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 27px 20px;
+
+            background: #062d59;
+
+            color: rgba(255,255,255,.72);
+
+            text-align: center;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+           13. TABLET
+        ========================================================= */
+
+        @media (max-width: 1200px) {
+
+            .navbar {
+                width: 96%;
+                padding: 0 17px;
+            }
+
+            .menu {
+                gap: 0;
+            }
+
+            .menu a {
+                padding: 10px 9px;
+            }
+
+            .interest-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
+
+        /* =========================================================
+           14. SMALL TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .site-header {
+                position: relative;
+
+                top: 0;
+
+                padding: 10px;
+            }
+
+
+            .navbar {
+                width: 100%;
+
+                padding: 14px 18px;
+
+                flex-wrap: wrap;
+            }
+
+
+            .menu {
+                order: 3;
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+
+                padding-top: 4px;
+            }
+
+
+            .menu a {
+                flex-shrink: 0;
+            }
+
+
+            .hero {
+                min-height: 420px;
+            }
+
+
+            .hero-container {
+                padding-top: 65px;
+            }
+
+
+            .hero-script {
+                display: none;
+            }
+
+
+            .interests-section {
+                margin-top: -65px;
+            }
+
+
+            .explore-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+
+        /* =========================================================
+           15. MOBILE
+        ========================================================= */
+
+        @media (max-width: 650px) {
+
+            .logo-mark {
+                font-size: 28px;
+            }
+
+
+            .logo-name {
+                font-size: 12px;
+            }
+
+
+            .contact-link {
+                font-size: 12px;
+            }
+
+
+            .hero {
+                min-height: 450px;
+
+                background:
+                    linear-gradient(
+                        rgba(246,250,254,.93),
+                        rgba(246,250,254,.82)
+                    ),
+                    url("images/interests-hero.jpg")
+                    center / cover no-repeat;
+            }
+
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+
+            .hero-description {
+                max-width: 95%;
+
+                font-size: 15px;
+            }
+
+
+            .interests-section {
+                margin-top: -55px;
+            }
+
+
+            .section-heading h2 {
+                font-size: 27px;
+            }
+
+
+            .interest-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .interest-card {
+                min-height: 245px;
+
+                padding: 22px;
+            }
+
+
+            .card-title {
+                font-size: 20px;
+            }
+
+
+            .card-description {
+                font-size: 13px;
+            }
+
+
+            .explore-banner {
+                padding: 28px 24px;
+            }
+
+
+            .banner-actions {
+                width: 100%;
+
+                flex-direction: column;
+            }
+
+
+            .banner-btn {
+                width: 100%;
+            }
+        }
+
+    </style>
 
 </head>
+
 
 <body>
 
 
-<header class="site-header">
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-    <div class="container navbar">
+    <header class="site-header">
 
-        <a href="index.html" class="logo">
-
-            <span class="logo-hk">HK</span>
-
-            <span class="logo-name">
-                HUỲNH CÔNG KHÁNH
-            </span>
-
-        </a>
+        <div class="navbar">
 
 
-        <nav aria-label="Điều hướng chính">
+            <a href="index.html" class="logo">
 
-            <ul class="nav-links">
+                <span class="logo-mark">
+                    HK
+                </span>
 
-                <li><a href="index.html">Trang chủ</a></li>
+                <span class="logo-name">
+                    HUỲNH CÔNG KHÁNH
+                </span>
 
-                <li><a href="about.html">Giới thiệu</a></li>
-
-                <li><a href="education.html">Học tập</a></li>
-
-                <li><a href="skills.html">Kỹ năng</a></li>
-
-                <li><a href="projects.html">Hoạt động</a></li>
-
-                <li>
-                    <a href="interests.html" class="active">
-                        Sở thích
-                    </a>
-                </li>
-
-                <li><a href="gallery.html">Thư viện</a></li>
-
-                <li>
-                    <a href="contact.html"
-                       class="contact-nav">
-                        ✈ Liên hệ
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </div>
-
-</header>
+            </a>
 
 
-<main>
+            <nav class="menu">
+
+                <a href="index.html">
+                    Trang chủ
+                </a>
+
+                <a href="about.html">
+                    Giới thiệu
+                </a>
+
+                <a href="education.html">
+                    Học tập
+                </a>
+
+                <a href="skills.html">
+                    Kỹ năng
+                </a>
+
+                <a href="projects.html">
+                    Hoạt động
+                </a>
+
+                <a href="interests.html" class="active">
+                    Sở thích
+                </a>
+
+                <a href="gallery.html">
+                    Thư viện
+                </a>
+
+            </nav>
 
 
-<section class="page-banner">
+            <a href="contact.html" class="contact-link">
+                ✈ Liên hệ
+            </a>
 
-    <div class="container">
 
-        <p class="skills-label">
-            MY INTERESTS
-        </p>
+        </div>
 
-        <h1>
-            Sở thích & Lĩnh vực quan tâm
-        </h1>
-
-        <p>
-            Những lĩnh vực giúp tôi khám phá thêm
-            kiến thức, trải nghiệm và những góc nhìn mới.
-        </p>
-
-    </div>
-
-</section>
+    </header>
 
 
 
-<section class="section section-light">
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-    <div class="container">
+    <section class="hero">
 
-        <div class="section-heading center">
+        <div class="hero-container">
 
-            <span class="eyebrow">
-                WHAT I LIKE
-            </span>
 
-            <h2>
-                Những điều tôi quan tâm
-            </h2>
+            <div class="eyebrow">
+                MY INTERESTS
+            </div>
 
-            <p>
-                Tôi thích khám phá nhiều lĩnh vực
-                thay vì giới hạn bản thân
-                trong một hướng duy nhất.
+
+            <h1>
+                Sở thích &<br>
+                <span>Lĩnh vực quan tâm</span>
+            </h1>
+
+
+            <p class="hero-description">
+                Những lĩnh vực giúp tôi khám phá thêm kiến thức,
+                trải nghiệm và những góc nhìn mới.
             </p>
 
-        </div>
 
+            <div class="hero-script">
 
-        <div class="skills-grid">
+                Explore<br>
+                Learn<br>
+                Grow
 
-
-            <article class="skill-card">
-
-                <div class="skill-icon">
-                    🤖
-                </div>
-
-                <span class="skill-code">
-                    TECHNOLOGY
+                <span>
+                    ↗
                 </span>
 
-                <h3>
-                    Công nghệ & AI
-                </h3>
+            </div>
 
-                <p>
-                    Tôi quan tâm đến trí tuệ nhân tạo,
-                    Internet vạn vật và những công nghệ
-                    có khả năng thay đổi cách con người
-                    học tập và làm việc.
-                </p>
-
-                <div class="skill-tags">
-                    <span>AI</span>
-                    <span>IoT</span>
-                    <span>Technology</span>
-                </div>
-
-            </article>
-
-
-            <article class="skill-card">
-
-                <div class="skill-icon">
-                    ✈️
-                </div>
-
-                <span class="skill-code">
-                    AVIATION
-                </span>
-
-                <h3>
-                    Hàng không & UAV
-                </h3>
-
-                <p>
-                    Tôi yêu thích lĩnh vực hàng không,
-                    máy bay và đặc biệt quan tâm đến
-                    những ứng dụng của UAV
-                    trong đời sống và công nghệ.
-                </p>
-
-                <div class="skill-tags">
-                    <span>Aviation</span>
-                    <span>UAV</span>
-                    <span>Aircraft</span>
-                </div>
-
-            </article>
-
-
-            <article class="skill-card">
-
-                <div class="skill-icon">
-                    📈
-                </div>
-
-                <span class="skill-code">
-                    BUSINESS
-                </span>
-
-                <h3>
-                    Kinh doanh
-                </h3>
-
-                <p>
-                    Tôi thích tìm hiểu cách doanh nghiệp
-                    vận hành, xây dựng thương hiệu,
-                    tiếp cận khách hàng và tạo ra giá trị.
-                </p>
-
-                <div class="skill-tags">
-                    <span>Business</span>
-                    <span>Brand</span>
-                    <span>Commerce</span>
-                </div>
-
-            </article>
-
-
-            <article class="skill-card">
-
-                <div class="skill-icon">
-                    💰
-                </div>
-
-                <span class="skill-code">
-                    FINANCE
-                </span>
-
-                <h3>
-                    Tài chính
-                </h3>
-
-                <p>
-                    Tôi quan tâm đến tài chính,
-                    thị trường và cách quản lý nguồn lực
-                    trong hoạt động kinh doanh.
-                </p>
-
-                <div class="skill-tags">
-                    <span>Finance</span>
-                    <span>Market</span>
-                </div>
-
-            </article>
-
-
-            <article class="skill-card">
-
-                <div class="skill-icon">
-                    ✍️
-                </div>
-
-                <span class="skill-code">
-                    CREATIVE
-                </span>
-
-                <h3>
-                    Content & Sáng tạo
-                </h3>
-
-                <p>
-                    Tôi thích xây dựng ý tưởng,
-                    viết nội dung và tìm cách
-                    truyền tải thông tin
-                    theo hướng dễ tiếp cận.
-                </p>
-
-                <div class="skill-tags">
-                    <span>Content</span>
-                    <span>Creative</span>
-                    <span>Media</span>
-                </div>
-
-            </article>
-
-
-            <article class="skill-card">
-
-                <div class="skill-icon">
-                    📷
-                </div>
-
-                <span class="skill-code">
-                    LIFESTYLE
-                </span>
-
-                <h3>
-                    Hình ảnh & Trải nghiệm
-                </h3>
-
-                <p>
-                    Tôi thích trải nghiệm môi trường mới,
-                    làm việc với hình ảnh và phát triển
-                    sự tự tin thông qua các hoạt động
-                    người mẫu tự do.
-                </p>
-
-                <div class="skill-tags">
-                    <span>Model</span>
-                    <span>Photography</span>
-                    <span>Experience</span>
-                </div>
-
-            </article>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
 
-<section class="skills-cta">
+    <!-- =====================================================
+         INTEREST CARDS
+    ====================================================== -->
 
-    <div class="container">
+    <main class="interests-section">
 
-        <span>
-            KEEP EXPLORING
-        </span>
+        <div class="container">
 
-        <h2>
-            Luôn tò mò, luôn học hỏi
-        </h2>
 
-        <p>
-            Tôi tin rằng việc tìm hiểu nhiều lĩnh vực
-            giúp bản thân có góc nhìn rộng hơn
-            và tạo ra nhiều cơ hội phát triển.
-        </p>
+            <div class="section-heading">
 
-        <div class="cta-buttons">
+                <div class="section-label">
+                    WHAT I LIKE
+                </div>
 
-            <a href="projects.html"
-               class="cta-primary">
-                Xem hoạt động →
-            </a>
 
-            <a href="gallery.html"
-               class="cta-secondary">
-                Xem thư viện
-            </a>
+                <h2>
+                    Những điều tôi quan tâm
+                </h2>
+
+
+                <p>
+                    Tôi thích khám phá nhiều lĩnh vực thay vì giới hạn
+                    bản thân trong một hướng duy nhất.
+                </p>
+
+            </div>
+
+
+
+            <div class="interest-grid">
+
+
+                <!-- ==========================================
+                     01 - TECHNOLOGY
+                =========================================== -->
+
+                <article class="interest-card">
+
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            ◉
+                        </div>
+
+                        <div class="card-category">
+                            TECHNOLOGY
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="card-title">
+                        Công nghệ & AI
+                    </h3>
+
+
+                    <p class="card-description">
+                        Tôi quan tâm đến trí tuệ nhân tạo,
+                        Internet vạn vật và những công nghệ có khả năng
+                        thay đổi cách con người học tập, làm việc và
+                        tương tác với thế giới trong tương lai.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span>AI</span>
+                        <span>IoT</span>
+                        <span>Technology</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ==========================================
+                     02 - AVIATION
+                =========================================== -->
+
+                <article class="interest-card">
+
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            ✈
+                        </div>
+
+                        <div class="card-category">
+                            AVIATION
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="card-title">
+                        Hàng không & UAV
+                    </h3>
+
+
+                    <p class="card-description">
+                        Tôi yêu thích lĩnh vực hàng không, máy bay
+                        và đặc biệt quan tâm đến UAV, công nghệ drone
+                        cũng như những ứng dụng của thiết bị bay
+                        không người lái trong thực tế.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span>Aviation</span>
+                        <span>UAV</span>
+                        <span>Aircraft</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ==========================================
+                     03 - BUSINESS
+                =========================================== -->
+
+                <article class="interest-card">
+
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            ▥
+                        </div>
+
+                        <div class="card-category">
+                            BUSINESS
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="card-title">
+                        Kinh doanh
+                    </h3>
+
+
+                    <p class="card-description">
+                        Tôi thích tìm hiểu cách doanh nghiệp vận hành,
+                        xây dựng thương hiệu, tiếp cận khách hàng,
+                        tổ chức hoạt động kinh doanh và tạo ra
+                        những giá trị bền vững.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span>Business</span>
+                        <span>Brand</span>
+                        <span>Commerce</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ==========================================
+                     04 - FINANCE
+                =========================================== -->
+
+                <article class="interest-card">
+
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            ◎
+                        </div>
+
+                        <div class="card-category">
+                            FINANCE
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="card-title">
+                        Tài chính
+                    </h3>
+
+
+                    <p class="card-description">
+                        Tôi quan tâm đến tài chính, thị trường,
+                        cách quản lý nguồn lực và những yếu tố
+                        ảnh hưởng đến quyết định tài chính trong
+                        hoạt động cá nhân và kinh doanh.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span>Finance</span>
+                        <span>Market</span>
+                        <span>Management</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ==========================================
+                     05 - CREATIVE
+                =========================================== -->
+
+                <article class="interest-card">
+
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            ✎
+                        </div>
+
+                        <div class="card-category">
+                            CREATIVE
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="card-title">
+                        Content & Sáng tạo
+                    </h3>
+
+
+                    <p class="card-description">
+                        Tôi thích xây dựng ý tưởng, viết nội dung,
+                        phát triển hình thức truyền tải thông tin
+                        và tìm kiếm những cách thể hiện sáng tạo,
+                        trực quan và dễ tiếp cận hơn.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span>Content</span>
+                        <span>Creative</span>
+                        <span>Media</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ==========================================
+                     06 - LIFESTYLE
+                =========================================== -->
+
+                <article class="interest-card">
+
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            ◉
+                        </div>
+
+                        <div class="card-category">
+                            LIFESTYLE
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="card-title">
+                        Hình ảnh & Trải nghiệm
+                    </h3>
+
+
+                    <p class="card-description">
+                        Tôi thích trải nghiệm những môi trường mới,
+                        làm việc với hình ảnh và phát triển sự tự tin,
+                        khả năng thể hiện bản thân thông qua các
+                        hoạt động và trải nghiệm thực tế.
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span>Model</span>
+                        <span>Photography</span>
+                        <span>Experience</span>
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </main>
 
 
-</main>
+
+    <!-- =====================================================
+         BOTTOM BANNER
+    ====================================================== -->
+
+    <section class="explore-section">
+
+        <div class="explore-banner">
 
 
-<footer class="site-footer">
+            <div class="banner-content">
 
-    <strong>
-        HUỲNH CÔNG KHÁNH
-    </strong>
 
-    <div class="footer-links">
+                <div class="banner-label">
+                    KEEP EXPLORING
+                </div>
 
-        <a href="index.html">Trang chủ</a>
-        <a href="about.html">Giới thiệu</a>
-        <a href="education.html">Học tập</a>
-        <a href="skills.html">Kỹ năng</a>
-        <a href="projects.html">Hoạt động</a>
-        <a href="interests.html">Sở thích</a>
-        <a href="gallery.html">Thư viện</a>
-        <a href="contact.html">Liên hệ</a>
 
-    </div>
+                <h2>
+                    Luôn tò mò, luôn học hỏi
+                </h2>
 
-    <p>
-        © 2026 Huỳnh Công Khánh · Website cá nhân
-    </p>
 
-</footer>
+                <p>
+                    Tôi tin rằng việc khám phá nhiều lĩnh vực giúp
+                    bản thân mở rộng góc nhìn, tích lũy trải nghiệm
+                    và tạo ra nhiều cơ hội phát triển hơn.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="banner-actions">
+
+
+                <a
+                    href="projects.html"
+                    class="banner-btn primary"
+                >
+                    ✈ Xem hoạt động →
+                </a>
+
+
+                <a
+                    href="gallery.html"
+                    class="banner-btn secondary"
+                >
+                    ▣ Xem thư viện
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        © 2026 Huỳnh Công Khánh · Personal Portfolio
+
+    </footer>
 
 
 </body>
+
 </html>

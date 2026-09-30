@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hoạt động & Dự án | Huỳnh Công Khánh</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Huỳnh Công Khánh | Hoạt động</title>
 
     <style>
         /* =====================================================
-           PROJECT PAGE - HUỲNH CÔNG KHÁNH
+           RESET
         ===================================================== */
 
         * {
@@ -26,18 +24,14 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            color: #102b58;
-            background: #f5f9ff;
-            line-height: 1.6;
+            background: #f5f9fe;
+            color: #123b6d;
+            line-height: 1.7;
         }
 
         a {
             text-decoration: none;
-        }
-
-        .project-container {
-            width: min(1400px, calc(100% - 70px));
-            margin: auto;
+            color: inherit;
         }
 
 
@@ -45,112 +39,163 @@
            HEADER
         ===================================================== */
 
-        .project-header {
+        .site-header {
             position: sticky;
             top: 0;
             z-index: 1000;
 
-            height: 76px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(15px);
 
-            display: flex;
-            align-items: center;
-
-            background: rgba(255, 255, 255, 0.94);
-
-            border-bottom: 1px solid #e5effa;
-
-            backdrop-filter: blur(18px);
-
-            box-shadow:
-                0 4px 18px rgba(20, 70, 130, 0.04);
+            border-bottom: 1px solid #e5edf6;
         }
 
-        .project-navbar {
+        .nav-container {
+            width: min(1420px, 92%);
+            min-height: 82px;
+
+            margin: auto;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            gap: 35px;
+            gap: 30px;
         }
 
-        .project-logo {
+
+        /* LOGO */
+
+        .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
 
-            color: #08275f;
-
-            white-space: nowrap;
+            flex-shrink: 0;
         }
 
-        .project-logo-mark {
-            font-size: 37px;
-            font-weight: 900;
+        .logo-hk {
+            width: 43px;
+            height: 43px;
 
-            letter-spacing: -4px;
-
-            color: #0877e8;
-        }
-
-        .project-logo-name {
-            font-size: 14px;
-            font-weight: 900;
-        }
-
-        .project-menu {
             display: flex;
             align-items: center;
             justify-content: center;
 
-            gap: 7px;
+            border-radius: 50%;
 
-            list-style: none;
-        }
-
-        .project-menu a {
-            display: block;
-
-            padding: 10px 14px;
-
-            color: #39506f;
-
-            border-radius: 12px;
-
-            font-size: 13px;
-            font-weight: 700;
-
-            transition: 0.25s ease;
-        }
-
-        .project-menu a:hover {
-            color: #0877e8;
-            background: #eef6ff;
-        }
-
-        .project-menu a.active {
-            color: #0877e8;
-            background: #e9f4ff;
-        }
-
-        .project-contact-btn {
-            padding: 11px 18px;
+            background: linear-gradient(
+                135deg,
+                #06478e,
+                #0797e8
+            );
 
             color: white;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #0877e8,
-                    #18a3f5
-                );
+            font-size: 14px;
+            font-weight: 800;
+        }
 
-            border-radius: 12px;
+        .logo-name {
+            color: #07366c;
 
-            font-size: 13px;
+            font-size: 16px;
             font-weight: 800;
 
+            letter-spacing: .3px;
+        }
+
+
+        /* NAV */
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 27px;
+        }
+
+        .main-nav a {
+            position: relative;
+
+            padding: 30px 0 27px;
+
+            color: #173b67;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            transition: .25s;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #0798e7;
+        }
+
+        .main-nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            bottom: 20px;
+
+            width: 0;
+            height: 3px;
+
+            transform: translateX(-50%);
+
+            background: #0aa2ef;
+
+            border-radius: 20px;
+
+            transition: .25s;
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+
+        /* CONTACT */
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 145px;
+
+            padding: 13px 23px;
+
+            border-radius: 999px;
+
+            background: linear-gradient(
+                135deg,
+                #0788e2,
+                #08a8ef
+            );
+
+            color: white;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            box-shadow: 0 12px 28px rgba(0, 145, 224, .20);
+
+            transition: .25s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+
             box-shadow:
-                0 8px 20px rgba(8, 119, 232, 0.18);
+                0 16px 35px rgba(0, 145, 224, .28);
         }
 
 
@@ -158,1051 +203,664 @@
            HERO
         ===================================================== */
 
-        .project-page-hero {
+        .hero {
             position: relative;
+
+            min-height: 365px;
+
+            display: flex;
+            align-items: center;
 
             overflow: hidden;
 
-            padding: 80px 0 85px;
-
             background:
                 radial-gradient(
-                    circle at 82% 20%,
-                    rgba(58, 151, 255, 0.20),
-                    transparent 25%
-                ),
-                radial-gradient(
-                    circle at 5% 80%,
-                    rgba(102, 184, 255, 0.11),
+                    circle at 82% 30%,
+                    rgba(17, 150, 235, .16),
                     transparent 28%
                 ),
                 linear-gradient(
                     135deg,
-                    #ffffff 0%,
-                    #f5faff 52%,
-                    #eaf5ff 100%
+                    #fafdff 0%,
+                    #edf7ff 55%,
+                    #e2f2ff 100%
                 );
         }
 
-        .project-page-hero::before {
+        .hero::before {
             content: "";
 
             position: absolute;
 
-            width: 600px;
-            height: 600px;
+            width: 480px;
+            height: 480px;
 
-            right: -240px;
-            top: -260px;
+            right: -140px;
+            top: -230px;
 
             border-radius: 50%;
 
-            background:
-                rgba(189, 220, 255, 0.22);
+            border: 1px solid rgba(20, 139, 220, .12);
         }
 
-        .project-page-hero::after {
-            content: "";
+        .hero::after {
+            content: "✈";
 
             position: absolute;
 
-            width: 550px;
-            height: 550px;
+            right: 10%;
+            top: 50%;
 
-            left: -400px;
-            bottom: -390px;
+            transform: translateY(-50%) rotate(-12deg);
 
-            border-radius: 50%;
+            color: rgba(5, 129, 214, .10);
 
-            border:
-                1px solid rgba(8, 119, 232, 0.10);
+            font-size: 190px;
         }
 
-        .project-hero-grid {
+        .hero-container {
             position: relative;
-            z-index: 5;
+            z-index: 2;
 
-            display: grid;
+            width: min(1420px, 90%);
 
-            grid-template-columns:
-                1.05fr 0.95fr;
-
-            align-items: center;
-
-            gap: 70px;
+            margin: auto;
         }
 
-
-        /* HERO TEXT */
-
-        .project-label {
+        .hero-label {
             display: flex;
             align-items: center;
 
-            gap: 12px;
+            gap: 15px;
 
-            margin-bottom: 18px;
+            margin-bottom: 10px;
 
-            color: #536a8d;
+            color: #0b579c;
 
-            font-size: 14px;
-            font-weight: 900;
+            font-size: 12px;
+            font-weight: 800;
 
-            letter-spacing: 1.5px;
+            letter-spacing: 4px;
         }
 
-        .project-label::before {
+        .hero-label::after {
             content: "";
 
-            width: 7px;
-            height: 23px;
+            width: 65px;
+            height: 1px;
 
-            background:
-                linear-gradient(
-                    #0877e8,
-                    #38adff
-                );
-
-            border-radius: 10px;
+            background: #6d9ac5;
         }
 
-        .project-label::after {
-            content: "";
+        .hero h1 {
+            max-width: 800px;
 
-            width: 85px;
-            height: 2px;
+            color: #072f61;
 
-            margin-left: 3px;
+            font-size: clamp(43px, 5vw, 68px);
 
-            background: #0877e8;
+            line-height: 1.08;
+
+            letter-spacing: -2px;
         }
 
-        .project-page-hero h1 {
-            color: #08245b;
-
-            font-size:
-                clamp(52px, 5.8vw, 80px);
-
-            font-weight: 900;
-
-            line-height: 1.02;
-
-            letter-spacing: -3px;
+        .hero h1 span {
+            color: #078ee1;
         }
 
-        .project-page-hero h1 span {
-            color: #0877e8;
-        }
+        .hero p {
+            max-width: 720px;
 
-        .project-hero-description {
-            max-width: 700px;
+            margin-top: 15px;
 
-            margin-top: 22px;
+            color: #526e8d;
 
-            color: #687b98;
+            font-size: 17px;
 
-            font-size: 18px;
-
-            line-height: 1.75;
+            line-height: 1.7;
         }
 
 
         /* =====================================================
-           HERO ILLUSTRATION
+           PROJECT SECTION
         ===================================================== */
 
-        .project-visual {
-            position: relative;
-
-            min-height: 330px;
+        .projects-section {
+            padding: 85px 0 100px;
         }
 
-        .visual-orbit {
-            position: absolute;
+        .section-container {
+            width: min(1420px, 92%);
+            margin: auto;
+        }
 
-            width: 510px;
-            height: 185px;
+
+        /* TITLE */
+
+        .section-title {
+            position: relative;
+
+            margin-bottom: 38px;
+
+            padding-left: 28px;
+        }
+
+        .section-title::before {
+            content: "";
+
+            position: absolute;
 
             left: 0;
-            top: 80px;
+            top: 5px;
 
-            border:
-                2px dashed rgba(8, 119, 232, 0.22);
-
-            border-radius: 50%;
-
-            transform: rotate(4deg);
-        }
-
-        .visual-dot {
-            position: absolute;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #75c7ff,
-                    #0877e8
-                );
-
-            box-shadow:
-                0 7px 15px rgba(8,119,232,.25);
-        }
-
-        .visual-dot.one {
-            width: 19px;
-            height: 19px;
-
-            top: 25px;
-            left: 130px;
-        }
-
-        .visual-dot.two {
-            width: 27px;
-            height: 27px;
-
-            left: 5px;
-            top: 180px;
-        }
-
-        .visual-dot.three {
-            width: 20px;
-            height: 20px;
-
-            right: 0;
-            top: 80px;
-        }
-
-
-        /* MAIN WINDOW */
-
-        .visual-main-window {
-            position: absolute;
-
-            z-index: 5;
-
-            width: 290px;
-            height: 220px;
-
-            left: 50%;
-            top: 25px;
-
-            transform:
-                translateX(-42%)
-                rotate(-3deg);
-
-            background:
-                rgba(255,255,255,.92);
-
-            border:
-                1px solid #e1edf9;
-
-            border-radius: 17px;
-
-            box-shadow:
-                0 25px 50px rgba(35,95,165,.15);
-        }
-
-        .window-top {
-            height: 30px;
-
-            padding: 0 13px;
-
-            display: flex;
-            align-items: center;
-
-            gap: 6px;
-
-            border-bottom: 1px solid #edf4fb;
-        }
-
-        .window-top i {
-            width: 7px;
-            height: 7px;
-
-            background: #d5e7fa;
-
-            border-radius: 50%;
-        }
-
-        .window-content {
-            padding: 25px;
-
-            display: flex;
-
-            gap: 18px;
-        }
-
-        .window-image {
-            width: 95px;
-            height: 95px;
-
-            flex-shrink: 0;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #66b8ff,
-                    #197ce9
-                );
-
-            border-radius: 12px;
-
-            font-size: 38px;
-            font-weight: 900;
-        }
-
-        .window-text {
-            flex: 1;
-
-            padding-top: 10px;
-        }
-
-        .window-text span {
-            display: block;
-
-            height: 10px;
-
-            margin-bottom: 13px;
-
-            background: #cae2f9;
+            width: 6px;
+            height: 55px;
 
             border-radius: 20px;
+
+            background: linear-gradient(
+                #0b83df,
+                #22b5f1
+            );
         }
 
-        .window-text span:nth-child(2) {
-            width: 80%;
+        .section-title h2 {
+            color: #062e60;
+
+            font-size: clamp(32px, 4vw, 47px);
+
+            line-height: 1.2;
+
+            letter-spacing: -1px;
         }
 
-        .window-text span:nth-child(3) {
-            width: 60%;
-        }
+        .section-title p {
+            margin-top: 5px;
 
+            color: #75869d;
 
-        /* SMALL WINDOWS */
-
-        .visual-small {
-            position: absolute;
-
-            z-index: 3;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #3c91ed;
-
-            background:
-                rgba(255,255,255,.90);
-
-            border:
-                1px solid #e1edf9;
-
-            border-radius: 15px;
-
-            box-shadow:
-                0 18px 38px rgba(35,95,165,.12);
-
-            font-weight: 900;
-        }
-
-        .visual-chart {
-            width: 125px;
-            height: 135px;
-
-            left: 15px;
-            top: 95px;
-
-            font-size: 50px;
-
-            transform: rotate(-6deg);
-        }
-
-        .visual-folder {
-            width: 120px;
-            height: 105px;
-
-            right: 0;
-            top: 85px;
-
-            font-size: 45px;
-
-            transform: rotate(7deg);
-        }
-
-        .visual-code {
-            z-index: 10;
-
-            width: 120px;
-            height: 105px;
-
-            right: 30px;
-            bottom: 0;
-
-            font-size: 37px;
-
-            transform: rotate(7deg);
+            font-size: 16px;
         }
 
 
         /* =====================================================
-           MAIN PROJECT SECTION
+           2 CARDS
         ===================================================== */
 
-        .projects-content {
-            position: relative;
-
-            padding: 60px 0 90px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #f9fcff,
-                    #f3f8fd
-                );
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: flex-start;
-
-            gap: 18px;
-
-            margin-bottom: 30px;
-        }
-
-        .section-heading-bar {
-            width: 7px;
-            height: 45px;
-
-            flex-shrink: 0;
-
-            margin-top: 4px;
-
-            background:
-                linear-gradient(
-                    #0877e8,
-                    #3ab1ff
-                );
-
-            border-radius: 20px;
-        }
-
-        .section-heading h2 {
-            color: #08265e;
-
-            font-size:
-                clamp(27px, 3vw, 36px);
-
-            font-weight: 900;
-
-            line-height: 1.25;
-        }
-
-        .section-heading p {
-            margin-top: 4px;
-
-            color: #74839a;
-
-            font-size: 15px;
-        }
-
-
-        /* =====================================================
-           PROJECT CARDS
-        ===================================================== */
-
-        .main-project-grid {
+        .projects-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(2, minmax(0, 1fr));
 
-            gap: 25px;
+            gap: 30px;
         }
 
-        .main-project-card {
+
+        .project-card {
             position: relative;
 
-            min-height: 385px;
+            min-height: 470px;
 
             overflow: hidden;
 
-            background: white;
+            padding: 40px;
 
-            border:
-                1px solid #e1ebf6;
+            background: #fff;
 
-            border-radius: 25px;
+            border: 1px solid #dce8f5;
+
+            border-radius: 30px;
 
             box-shadow:
-                0 14px 35px rgba(30,80,145,.07);
+                0 16px 45px rgba(19, 63, 105, .07);
 
             transition:
                 transform .35s ease,
                 box-shadow .35s ease;
         }
 
-        .main-project-card:hover {
+        .project-card:hover {
             transform: translateY(-8px);
 
             box-shadow:
-                0 24px 50px rgba(30,80,145,.14);
+                0 26px 60px rgba(19, 63, 105, .14);
         }
 
-        .card-content {
+
+        /* CARD HEADER */
+
+        .project-header {
             position: relative;
             z-index: 5;
 
-            width: 70%;
-            min-height: 385px;
-
-            padding:
-                28px 0
-                80px 27px;
-        }
-
-        .card-title {
             display: flex;
             align-items: center;
 
-            gap: 14px;
-
-            margin-bottom: 18px;
+            gap: 18px;
         }
 
-        .card-icon {
-            width: 60px;
-            height: 60px;
+        .project-icon {
+            width: 76px;
+            height: 76px;
 
-            flex: 0 0 60px;
+            flex-shrink: 0;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            color: #0877e8;
+            border-radius: 20px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #e8f4ff,
-                    #f6faff
-                );
-
-            border:
-                1px solid #dbeaff;
-
-            border-radius: 15px;
-
-            font-size: 26px;
-            font-weight: 900;
-        }
-
-        .card-title h3 {
-            color: #08265e;
-
-            font-size: 25px;
-
-            font-weight: 900;
-
-            line-height: 1.2;
-        }
-
-        .card-title span {
-            display: block;
-
-            margin-top: 3px;
-
-            color: #0877e8;
-
-            font-size: 13px;
+            font-size: 34px;
             font-weight: 800;
-        }
-
-        .card-content p {
-            margin-bottom: 13px;
-
-            color: #60728c;
-
-            font-size: 14px;
-
-            line-height: 1.7;
-        }
-
-        .card-arrow {
-            position: absolute;
-
-            left: 27px;
-            bottom: 24px;
-
-            width: 49px;
-            height: 49px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #0877e8;
-
-            background: #e7f3ff;
-
-            border-radius: 50%;
-
-            font-size: 23px;
-
-            transition: .3s ease;
-        }
-
-        .card-arrow:hover {
-            color: white;
-
-            background: #0877e8;
-
-            transform: translateX(5px);
-        }
-
-
-        /* =====================================================
-           CARD DECORATION
-        ===================================================== */
-
-        .card-decoration {
-            position: absolute;
-
-            width: 48%;
-
-            right: 0;
-            top: 0;
-            bottom: 0;
-
-            pointer-events: none;
-        }
-
-        .card-circle {
-            position: absolute;
-
-            width: 340px;
-            height: 340px;
-
-            right: -125px;
-            bottom: -70px;
-
-            border-radius: 50%;
         }
 
 
         /* UAV */
 
-        .card-uav .card-circle {
-            background:
-                linear-gradient(
-                    145deg,
-                    #edf7ff,
-                    #c9e1ff
-                );
-        }
+        .uav-card .project-icon {
+            color: #0874dc;
 
-        .uav-shape {
-            position: absolute;
+            background: #eef7ff;
 
-            right: 35px;
-            top: 145px;
-
-            color: #3985d8;
-
-            font-size: 95px;
-
-            transform: rotate(-8deg);
-
-            filter:
-                drop-shadow(
-                    0 15px 13px
-                    rgba(40,100,180,.20)
-                );
-        }
-
-
-        /* JAVA */
-
-        .card-java {
-            background:
-                linear-gradient(
-                    145deg,
-                    #ffffff,
-                    #fffbf7
-                );
-        }
-
-        .card-java .card-circle {
-            background:
-                linear-gradient(
-                    145deg,
-                    #fff6eb,
-                    #ffe2c3
-                );
-        }
-
-        .card-java .card-icon {
-            color: #f18417;
-
-            background: #fff1df;
-
-            border-color: #ffe2c0;
-        }
-
-        .card-java .card-title span {
-            color: #e97b0e;
-        }
-
-        .java-window {
-            position: absolute;
-
-            right: 18px;
-            bottom: 70px;
-
-            width: 170px;
-            height: 120px;
-
-            overflow: hidden;
-
-            background: #f7fbff;
-
-            border: 7px solid #102f61;
-
-            border-radius: 10px;
-
-            box-shadow:
-                0 18px 30px rgba(25,65,120,.18);
-
-            transform: rotate(-5deg);
-        }
-
-        .java-window-top {
-            height: 20px;
-
-            background: #dcecff;
-        }
-
-        .java-code {
-            padding: 12px;
-        }
-
-        .java-code strong {
-            display: block;
-
-            margin-bottom: 10px;
-
-            color: #f18417;
-
-            font-size: 25px;
-        }
-
-        .java-code i {
-            display: block;
-
-            width: 85%;
-            height: 6px;
-
-            margin-bottom: 6px;
-
-            background: #aac9e9;
-
-            border-radius: 10px;
-        }
-
-        .java-code i:nth-child(3) {
-            width: 60%;
+            border: 1px solid #d3e8fb;
         }
 
 
         /* WEB */
 
-        .card-web {
-            background:
-                linear-gradient(
-                    145deg,
-                    #ffffff,
-                    #faf9ff
-                );
+        .web-card .project-icon {
+            color: #6955ed;
+
+            background: #f0edff;
+
+            border: 1px solid #ded8ff;
         }
 
-        .card-web .card-circle {
-            background:
-                linear-gradient(
-                    145deg,
-                    #f3f1ff,
-                    #dcd8ff
-                );
+
+        .project-heading h3 {
+            color: #062e60;
+
+            font-size: 30px;
+
+            line-height: 1.1;
         }
 
-        .card-web .card-icon {
-            color: #715be8;
+        .project-category {
+            margin-top: 6px;
 
-            background: #efedff;
-
-            border-color: #e1dcff;
+            font-size: 15px;
+            font-weight: 800;
         }
 
-        .card-web .card-title span {
-            color: #715be8;
+        .uav-card .project-category {
+            color: #0874dc;
         }
 
-        .web-device {
+        .web-card .project-category {
+            color: #6955ed;
+        }
+
+
+        /* DESCRIPTION */
+
+        .project-description {
+            position: relative;
+            z-index: 5;
+
+            max-width: 58%;
+
+            margin-top: 28px;
+        }
+
+        .project-description p {
+            margin-bottom: 17px;
+
+            color: #536f8e;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+
+        /* TAGS */
+
+        .project-tags {
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            max-width: 55%;
+
+            margin-top: 20px;
+        }
+
+        .project-tags span {
+            padding: 7px 13px;
+
+            border-radius: 999px;
+
+            background: #eef6ff;
+
+            color: #1768b8;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .web-card .project-tags span {
+            color: #6551dc;
+
+            background: #f0edff;
+        }
+
+
+        /* BACKGROUND DECORATION */
+
+        .project-art {
             position: absolute;
 
-            right: 15px;
-            bottom: 65px;
+            right: -20px;
+            bottom: -20px;
 
-            width: 175px;
+            width: 47%;
+            height: 72%;
 
-            transform: rotate(5deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 55% 0 0 0;
         }
 
-        .web-screen {
-            height: 115px;
-
-            padding: 10px;
-
-            background: #edf5ff;
-
-            border: 7px solid #102e60;
-
-            border-radius:
-                9px 9px 4px 4px;
+        .uav-card .project-art {
+            background:
+                linear-gradient(
+                    135deg,
+                    #edf7ff,
+                    #d2e9ff
+                );
         }
 
-        .web-screen-nav {
-            height: 10px;
+        .web-card .project-art {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f4f1ff,
+                    #ded9ff
+                );
+        }
+
+
+        /* BIG ICON */
+
+        .big-art-icon {
+            position: relative;
+            z-index: 2;
+
+            font-size: 130px;
+
+            filter:
+                drop-shadow(
+                    0 15px 12px rgba(15, 74, 130, .13)
+                );
+        }
+
+        .uav-card .big-art-icon {
+            color: #2785df;
+
+            transform: rotate(-13deg);
+        }
+
+
+        /* WEB LAPTOP */
+
+        .laptop {
+            position: relative;
+
+            width: 260px;
+            height: 175px;
+
+            padding: 12px;
+
+            transform: rotate(6deg);
+
+            border: 10px solid #092f63;
+
+            border-radius: 13px;
+
+            background: #dcecff;
+
+            box-shadow:
+                0 18px 20px rgba(16, 50, 90, .18);
+        }
+
+        .browser-bar {
+            height: 18px;
 
             margin-bottom: 10px;
 
-            background: #3185ee;
+            border-radius: 4px;
 
-            border-radius: 2px;
+            background: #338ce4;
         }
 
-        .web-screen-body {
+        .browser-content {
             display: grid;
 
-            grid-template-columns:
-                .7fr 1fr;
+            grid-template-columns: 1fr 1.25fr;
 
-            gap: 8px;
+            gap: 10px;
+
+            height: 105px;
         }
 
-        .web-screen-body span {
-            height: 57px;
-
-            background: #cce2fb;
+        .browser-content div:first-child {
+            background: #bcd7f5;
         }
 
-        .web-screen-body strong {
-            height: 57px;
-
+        .browser-content div:last-child {
             background:
                 linear-gradient(
-                    145deg,
-                    #6bb6ff,
-                    #2c81e7
+                    135deg,
+                    #51a3f1,
+                    #1678dd
                 );
         }
 
-        .web-base {
-            width: 110%;
-            height: 14px;
+        .laptop::after {
+            content: "";
 
-            margin-left: -5%;
+            position: absolute;
 
-            background:
-                linear-gradient(
-                    #d6e2ee,
-                    #9cafc3
-                );
+            left: -24px;
+            right: -24px;
+            bottom: -25px;
+
+            height: 17px;
+
+            background: #a7b8c9;
 
             clip-path:
                 polygon(
-                    5% 0,
-                    95% 0,
+                    7% 0,
+                    93% 0,
                     100% 100%,
                     0 100%
                 );
         }
 
 
-        /* =====================================================
-           EXPERIENCE
-        ===================================================== */
+        /* ARROW */
 
-        .experience-heading {
-            margin-top: 65px;
-        }
-
-        .experience-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 22px;
-        }
-
-        .experience-card {
-            position: relative;
-
-            min-height: 215px;
-
-            overflow: hidden;
-
-            padding: 30px;
-
-            display: grid;
-
-            grid-template-columns:
-                70px 1fr;
-
-            align-items: flex-start;
-
-            gap: 20px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #ffffff,
-                    #f7fbff
-                );
-
-            border:
-                1px solid #dfeaf6;
-
-            border-radius: 23px;
-
-            box-shadow:
-                0 12px 32px rgba(30,80,145,.07);
-
-            transition: .35s ease;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-7px);
-
-            border-color:
-                rgba(8,119,232,.22);
-
-            box-shadow:
-                0 22px 45px rgba(30,80,145,.13);
-        }
-
-        .experience-number {
+        .project-arrow {
             position: absolute;
 
-            right: 15px;
-            top: -22px;
+            z-index: 10;
 
-            color:
-                rgba(8,119,232,.055);
+            left: 40px;
+            bottom: 34px;
 
-            font-size: 110px;
-
-            font-weight: 900;
-
-            line-height: 1;
-        }
-
-        .experience-icon {
-            position: relative;
-            z-index: 3;
-
-            width: 68px;
-            height: 68px;
+            width: 62px;
+            height: 62px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            color: #0877e8;
+            border-radius: 50%;
 
-            background: #eaf5ff;
+            background: #e8f5ff;
 
-            border:
-                1px solid #d9eaff;
+            color: #0877dc;
 
-            border-radius: 18px;
+            font-size: 26px;
 
-            font-size: 27px;
-
-            font-weight: 900;
+            transition: .3s;
         }
 
-        .experience-info {
+        .project-card:hover .project-arrow {
+            transform: translateX(7px);
+
+            background: #087ee1;
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           BOTTOM CTA
+        ===================================================== */
+
+        .journey {
+            padding-bottom: 80px;
+        }
+
+        .journey-box {
+            position: relative;
+
+            width: min(1420px, 92%);
+            min-height: 180px;
+
+            margin: auto;
+
+            overflow: hidden;
+
+            padding: 35px 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 40px;
+
+            border-radius: 25px;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(64, 181, 255, .30),
+                    transparent 27%
+                ),
+                linear-gradient(
+                    135deg,
+                    #06356d,
+                    #07549a
+                );
+
+            color: white;
+
+            box-shadow:
+                0 20px 50px rgba(7, 53, 105, .17);
+        }
+
+        .journey-box::after {
+            content: "✈";
+
+            position: absolute;
+
+            right: 6%;
+            top: -40px;
+
+            color: rgba(255,255,255,.07);
+
+            font-size: 200px;
+
+            transform: rotate(-15deg);
+        }
+
+        .journey-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 760px;
+        }
+
+        .journey-label {
+            margin-bottom: 5px;
+
+            color: #8dd8ff;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+        }
+
+        .journey-content h2 {
+            font-size: 29px;
+        }
+
+        .journey-content p {
+            margin-top: 7px;
+
+            color: rgba(255,255,255,.80);
+        }
+
+        .journey-actions {
             position: relative;
             z-index: 3;
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-shrink: 0;
         }
 
-        .experience-tag {
-            display: block;
+        .journey-btn {
+            min-width: 155px;
 
-            margin-bottom: 4px;
+            padding: 13px 20px;
 
-            color: #0877e8;
+            border: 1px solid rgba(255,255,255,.65);
 
-            font-size: 10px;
+            border-radius: 12px;
 
-            font-weight: 900;
+            color: white;
 
-            letter-spacing: 1.7px;
+            text-align: center;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            transition: .25s;
         }
 
-        .experience-info h3 {
-            margin-bottom: 8px;
+        .journey-btn.primary {
+            background: white;
 
-            color: #08265e;
-
-            font-size: 22px;
-
-            font-weight: 900;
+            color: #07396f;
         }
 
-        .experience-info p {
-            color: #687b94;
-
-            font-size: 14px;
-
-            line-height: 1.75;
-        }
-
-        .experience-card.orange
-        .experience-icon {
-            color: #ee8418;
-
-            background: #fff2e2;
-
-            border-color: #ffe2c2;
-        }
-
-        .experience-card.purple
-        .experience-icon {
-            color: #715be8;
-
-            background: #efedff;
-
-            border-color: #e1dcff;
-        }
-
-        .experience-card.green
-        .experience-icon {
-            color: #078696;
-
-            background: #e7f9fb;
-
-            border-color: #d1eff3;
+        .journey-btn:hover {
+            transform: translateY(-3px);
         }
 
 
@@ -1210,121 +868,56 @@
            FOOTER
         ===================================================== */
 
-        .project-footer {
-            padding: 35px 0;
+        footer {
+            padding: 27px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #edf6ff,
-                    #f8fbff
-                );
+            background: #052b56;
 
-            border-top:
-                1px solid #dce9f7;
-        }
+            color: rgba(255,255,255,.70);
 
-        .project-footer-content {
-            display: flex;
-
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 30px;
-        }
-
-        .project-footer-brand {
-            display: flex;
-            align-items: center;
-
-            gap: 12px;
-        }
-
-        .project-footer-brand strong {
-            color: #0877e8;
-
-            font-size: 35px;
-        }
-
-        .project-footer-brand h4 {
-            color: #08265e;
-
-            font-size: 14px;
-        }
-
-        .project-footer-brand p {
-            color: #75869c;
-
-            font-size: 11px;
-        }
-
-        .project-footer-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .project-footer-links a {
-            color: #536985;
+            text-align: center;
 
             font-size: 12px;
         }
 
-        .project-footer-links a:hover {
-            color: #0877e8;
-        }
 
-        .project-copyright {
-            color: #71839b;
+        /* =====================================================
+           TABLET
+        ===================================================== */
 
-            font-size: 11px;
+        @media (max-width: 1100px) {
 
-            text-align: right;
+            .main-nav {
+                gap: 16px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                min-height: 450px;
+            }
+
+            .project-description {
+                max-width: 62%;
+            }
         }
 
 
         /* =====================================================
-           RESPONSIVE
+           MOBILE
         ===================================================== */
 
-        @media (max-width: 1150px) {
+        @media (max-width: 850px) {
 
-            .project-menu {
-                gap: 1px;
-            }
-
-            .project-menu a {
-                padding:
-                    9px 8px;
-
-                font-size: 11px;
-            }
-
-            .main-project-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .main-project-card:last-child {
-                grid-column:
-                    1 / -1;
-            }
-
-        }
-
-
-        @media (max-width: 900px) {
-
-            .project-header {
-                height: auto;
+            .nav-container {
+                flex-wrap: wrap;
 
                 padding: 14px 0;
             }
 
-            .project-navbar {
-                flex-wrap: wrap;
-            }
-
-            .project-menu {
+            .main-nav {
                 order: 3;
 
                 width: 100%;
@@ -1334,373 +927,256 @@
                 justify-content: flex-start;
             }
 
-            .project-contact-btn {
-                display: none;
+            .main-nav a {
+                padding: 10px 0 14px;
             }
 
-            .project-hero-grid {
-                grid-template-columns: 1fr;
-
-                text-align: center;
+            .main-nav a::after {
+                bottom: 5px;
             }
 
-            .project-label {
-                justify-content: center;
+            .hero {
+                min-height: 330px;
             }
 
-            .project-hero-description {
-                margin-left: auto;
-                margin-right: auto;
+            .hero::after {
+                font-size: 130px;
             }
 
-            .project-visual {
-                width: 520px;
+            .project-description {
                 max-width: 100%;
-
-                margin: auto;
             }
 
-            .experience-grid {
-                grid-template-columns: 1fr;
+            .project-tags {
+                max-width: 100%;
             }
 
-            .project-footer-content {
+            .project-card {
+                padding-bottom: 300px;
+            }
+
+            .project-art {
+                width: 100%;
+                height: 270px;
+
+                right: 0;
+                bottom: 0;
+
+                border-radius: 50% 50% 0 0;
+            }
+
+            .project-arrow {
+                bottom: 235px;
+            }
+
+            .journey-box {
                 flex-direction: column;
-
-                text-align: center;
+                align-items: flex-start;
             }
-
-            .project-copyright {
-                text-align: center;
-            }
-
         }
 
 
-        @media (max-width: 700px) {
+        @media (max-width: 550px) {
 
-            .project-container {
-                width:
-                    min(100% - 32px, 1400px);
+            .logo-name {
+                font-size: 12px;
             }
 
-            .project-page-hero {
+            .contact-btn {
+                min-width: auto;
+
+                padding: 10px 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .projects-section {
+                padding-top: 60px;
+            }
+
+            .project-card {
                 padding:
-                    55px 0 35px;
+                    27px
+                    24px
+                    280px;
+
+                border-radius: 22px;
             }
 
-            .project-page-hero h1 {
-                font-size: 45px;
+            .project-icon {
+                width: 60px;
+                height: 60px;
 
-                letter-spacing: -2px;
+                font-size: 27px;
             }
 
-            .project-hero-description {
-                font-size: 15px;
-            }
-
-            .project-visual {
-                transform: scale(.88);
-
-                margin-top: -15px;
-            }
-
-            .main-project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .main-project-card:last-child {
-                grid-column: auto;
-            }
-
-            .card-content {
-                width: 75%;
-            }
-
-            .section-heading h2 {
+            .project-heading h3 {
                 font-size: 25px;
             }
 
-            .project-footer-links {
-                flex-wrap: wrap;
-
-                justify-content: center;
+            .project-description p {
+                font-size: 14px;
             }
 
-        }
-
-
-        @media (max-width: 500px) {
-
-            .project-logo-name {
-                font-size: 11px;
+            .project-art {
+                height: 245px;
             }
 
-            .project-logo-mark {
-                font-size: 31px;
+            .big-art-icon {
+                font-size: 100px;
             }
 
-            .project-page-hero h1 {
-                font-size: 38px;
+            .laptop {
+                width: 215px;
+                height: 145px;
             }
 
-            .project-label {
-                font-size: 10px;
+            .browser-content {
+                height: 80px;
             }
 
-            .project-label::after {
-                width: 45px;
+            .project-arrow {
+                left: 24px;
+                bottom: 210px;
+
+                width: 50px;
+                height: 50px;
             }
 
-            .project-visual {
-                width: 440px;
-                max-width: 125%;
-
-                left: 50%;
-
-                margin-left: -220px;
-
-                transform: scale(.75);
+            .journey-box {
+                padding: 30px 25px;
             }
 
-            .projects-content {
-                padding-top: 45px;
-            }
-
-            .main-project-card {
-                min-height: 410px;
-            }
-
-            .card-content {
+            .journey-actions {
                 width: 100%;
 
-                min-height: 410px;
-
-                padding:
-                    23px 20px
-                    78px;
+                flex-direction: column;
             }
 
-            .card-content p {
-                max-width: 85%;
+            .journey-btn {
+                width: 100%;
             }
-
-            .card-decoration {
-                opacity: .25;
-            }
-
-            .card-arrow {
-                left: 20px;
-            }
-
-            .experience-card {
-                grid-template-columns: 1fr;
-
-                padding: 24px 20px;
-            }
-
         }
-
     </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-<header class="project-header">
+    <header class="site-header">
 
-    <div class="project-container project-navbar">
-
-        <a href="index.html" class="project-logo">
-
-            <span class="project-logo-mark">
-                HK
-            </span>
-
-            <span class="project-logo-name">
-                HUỲNH CÔNG KHÁNH
-            </span>
-
-        </a>
+        <div class="nav-container">
 
 
-        <nav>
+            <a href="index.html" class="logo">
 
-            <ul class="project-menu">
+                <span class="logo-hk">
+                    HK
+                </span>
 
-                <li>
-                    <a href="index.html">
-                        Trang chủ
-                    </a>
-                </li>
+                <span class="logo-name">
+                    HUỲNH CÔNG KHÁNH
+                </span>
 
-                <li>
-                    <a href="about.html">
-                        Giới thiệu
-                    </a>
-                </li>
-
-                <li>
-                    <a href="education.html">
-                        Học tập
-                    </a>
-                </li>
-
-                <li>
-                    <a href="skills.html">
-                        Kỹ năng
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="projects.html"
-                        class="active"
-                    >
-                        Hoạt động
-                    </a>
-                </li>
-
-                <li>
-                    <a href="interests.html">
-                        Sở thích
-                    </a>
-                </li>
-
-                <li>
-                    <a href="gallery.html">
-                        Thư viện
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
+            </a>
 
 
-        <a
-            href="index.html#contact"
-            class="project-contact-btn"
-        >
-            Liên hệ
-        </a>
+            <nav class="main-nav">
 
-    </div>
+                <a href="index.html">
+                    Trang chủ
+                </a>
 
-</header>
+                <a href="about.html">
+                    Giới thiệu
+                </a>
+
+                <a href="education.html">
+                    Học tập
+                </a>
+
+                <a href="skills.html">
+                    Kỹ năng
+                </a>
+
+                <a
+                    href="projects.html"
+                    class="active"
+                >
+                    Hoạt động
+                </a>
+
+                <a href="interests.html">
+                    Sở thích
+                </a>
+
+                <a href="gallery.html">
+                    Thư viện
+                </a>
+
+            </nav>
+
+
+            <a
+                href="contact.html"
+                class="contact-btn"
+            >
+                ✈ &nbsp; Liên hệ
+            </a>
+
+
+        </div>
+
+    </header>
 
 
 
-<main>
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
+    <section class="hero">
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+        <div class="hero-container">
 
-<section class="project-page-hero">
-
-    <div class="project-container project-hero-grid">
-
-
-        <!-- LEFT -->
-
-        <div>
-
-            <div class="project-label">
-                PROJECTS & ACTIVITIES
+            <div class="hero-label">
+                ACTIVITIES & PROJECTS
             </div>
 
             <h1>
-                Hoạt động
-                <span>& Dự án</span>
+                Hoạt động &
+                <span>Dự án</span>
             </h1>
 
-            <p class="project-hero-description">
-                Những hoạt động thực tế và dự án cá nhân
-                giúp tôi tích lũy kinh nghiệm, phát triển
-                kỹ năng công nghệ và khám phá nhiều lĩnh vực khác nhau.
+            <p>
+                Những hoạt động và dự án giúp tôi phát triển
+                kỹ năng công nghệ, khả năng sáng tạo nội dung
+                và tích lũy thêm những trải nghiệm thực tế.
             </p>
 
         </div>
 
-
-        <!-- RIGHT -->
-
-        <div class="project-visual">
-
-            <div class="visual-orbit"></div>
-
-            <span class="visual-dot one"></span>
-            <span class="visual-dot two"></span>
-            <span class="visual-dot three"></span>
-
-
-            <div class="visual-main-window">
-
-                <div class="window-top">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </div>
-
-                <div class="window-content">
-
-                    <div class="window-image">
-                        ◇
-                    </div>
-
-                    <div class="window-text">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="visual-small visual-chart">
-                ▥
-            </div>
-
-            <div class="visual-small visual-folder">
-                ▰
-            </div>
-
-            <div class="visual-small visual-code">
-                &lt;/&gt;
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =========================================================
-     PROJECTS
-========================================================= -->
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
 
-<section class="projects-content">
+    <main class="projects-section">
 
-    <div class="project-container">
+        <div class="section-container">
 
 
-        <div class="section-heading">
-
-            <div class="section-heading-bar"></div>
-
-            <div>
+            <div class="section-title">
 
                 <h2>
                     Những hoạt động & dự án nổi bật
@@ -1708,492 +1184,267 @@
 
                 <p>
                     Một số hoạt động và dự án giúp tôi phát triển
-                    kỹ năng công nghệ, sáng tạo nội dung
-                    và trải nghiệm thực tế.
+                    kỹ năng công nghệ, sáng tạo nội dung và trải nghiệm thực tế.
                 </p>
 
             </div>
 
-        </div>
 
 
+            <div class="projects-grid">
 
-        <div class="main-project-grid">
+
+                <!-- =============================================
+                     UAV
+                ============================================== -->
+
+                <article class="project-card uav-card">
 
 
-            <!-- =================================================
-                 UAV
-            ================================================= -->
+                    <div class="project-header">
 
-            <article class="main-project-card card-uav">
-
-                <div class="card-content">
-
-                    <div class="card-title">
-
-                        <div class="card-icon">
+                        <div class="project-icon">
                             ✈
                         </div>
 
-                        <div>
 
-                            <h3>UAV</h3>
+                        <div class="project-heading">
 
-                            <span>
+                            <h3>
+                                UAV
+                            </h3>
+
+                            <div class="project-category">
                                 Truyền thông & Drone
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <p>
-                        Tôi từng tham gia xây dựng nội dung
-                        cho các chương trình và hoạt động
-                        liên quan đến máy bay không người lái (UAV).
-                    </p>
-
-                    <p>
-                        Qua đó, tôi có cơ hội tìm hiểu thêm
-                        về công nghệ Drone, xây dựng nội dung
-                        và cách truyền tải thông tin.
-                    </p>
-
-
-                    <a
-                        href="#experience"
-                        class="card-arrow"
-                        aria-label="Xem thêm"
-                    >
-                        →
-                    </a>
-
-                </div>
-
-
-                <div class="card-decoration">
-
-                    <div class="card-circle"></div>
-
-                    <div class="uav-shape">
-                        ✈
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 JAVA
-            ================================================= -->
-
-            <article class="main-project-card card-java">
-
-                <div class="card-content">
-
-                    <div class="card-title">
-
-                        <div class="card-icon">
-                            &lt;/&gt;
-                        </div>
-
-                        <div>
-
-                            <h3>Undo / Redo</h3>
-
-                            <span>
-                                Java • Spring Boot
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <p>
-                        Dự án xây dựng chức năng Undo/Redo
-                        bằng Java và áp dụng cấu trúc dữ liệu
-                        Doubly Linked List.
-                    </p>
-
-                    <p>
-                        Tôi sử dụng Spring Boot, Thymeleaf
-                        và mô hình MVC để thực hành lập trình
-                        hướng đối tượng và phát triển Web.
-                    </p>
-
-
-                    <a
-                        href="#experience"
-                        class="card-arrow"
-                        aria-label="Xem thêm"
-                    >
-                        →
-                    </a>
-
-                </div>
-
-
-                <div class="card-decoration">
-
-                    <div class="card-circle"></div>
-
-                    <div class="java-window">
-
-                        <div class="java-window-top"></div>
-
-                        <div class="java-code">
-
-                            <strong>
-                                &lt;/&gt;
-                            </strong>
-
-                            <i></i>
-                            <i></i>
-                            <i></i>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 WEBSITE
-            ================================================= -->
-
-            <article class="main-project-card card-web">
-
-                <div class="card-content">
-
-                    <div class="card-title">
-
-                        <div class="card-icon">
-                            &lt;/&gt;
-                        </div>
-
-                        <div>
-
-                            <h3>WEB</h3>
-
-                            <span>
-                                Website cá nhân
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <p>
-                        Website hiện tại là dự án cá nhân
-                        được xây dựng nhằm giới thiệu bản thân,
-                        quá trình học tập, kỹ năng và trải nghiệm.
-                    </p>
-
-                    <p>
-                        Website sử dụng HTML5, CSS3,
-                        Responsive Design, Flexbox,
-                        CSS Grid và GitHub Pages.
-                    </p>
-
-
-                    <a
-                        href="index.html"
-                        class="card-arrow"
-                        aria-label="Trang chủ"
-                    >
-                        →
-                    </a>
-
-                </div>
-
-
-                <div class="card-decoration">
-
-                    <div class="card-circle"></div>
-
-                    <div class="web-device">
-
-                        <div class="web-screen">
-
-                            <div class="web-screen-nav"></div>
-
-                            <div class="web-screen-body">
-                                <span></span>
-                                <strong></strong>
                             </div>
 
                         </div>
 
-                        <div class="web-base"></div>
+                    </div>
+
+
+
+                    <div class="project-description">
+
+                        <p>
+                            Tôi từng tham gia xây dựng nội dung
+                            cho các chương trình và hoạt động
+                            liên quan đến máy bay không người lái
+                            (UAV).
+                        </p>
+
+                        <p>
+                            Qua đó, tôi có cơ hội tìm hiểu thêm
+                            về công nghệ Drone, xây dựng nội dung
+                            và cách truyền tải thông tin.
+                        </p>
 
                     </div>
 
-                </div>
 
-            </article>
+
+                    <div class="project-tags">
+
+                        <span>UAV</span>
+                        <span>Drone</span>
+                        <span>Content</span>
+                        <span>Truyền thông</span>
+
+                    </div>
+
+
+
+                    <div class="project-art">
+
+                        <div class="big-art-icon">
+                            ✈
+                        </div>
+
+                    </div>
+
+
+
+                    <a
+                        href="#"
+                        class="project-arrow"
+                        aria-label="Xem hoạt động UAV"
+                    >
+                        →
+                    </a>
+
+
+                </article>
+
+
+
+                <!-- =============================================
+                     WEBSITE
+                ============================================== -->
+
+                <article class="project-card web-card">
+
+
+                    <div class="project-header">
+
+                        <div class="project-icon">
+                            &lt;/&gt;
+                        </div>
+
+
+                        <div class="project-heading">
+
+                            <h3>
+                                WEB
+                            </h3>
+
+                            <div class="project-category">
+                                Website cá nhân
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="project-description">
+
+                        <p>
+                            Website hiện tại là dự án cá nhân
+                            được xây dựng nhằm giới thiệu bản thân,
+                            quá trình học tập, kỹ năng và trải nghiệm.
+                        </p>
+
+                        <p>
+                            Website sử dụng HTML5, CSS3,
+                            Responsive Design, Flexbox,
+                            CSS Grid và được triển khai
+                            bằng GitHub Pages.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="project-tags">
+
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>Responsive</span>
+                        <span>GitHub Pages</span>
+
+                    </div>
+
+
+
+                    <div class="project-art">
+
+                        <div class="laptop">
+
+                            <div class="browser-bar">
+                            </div>
+
+                            <div class="browser-content">
+
+                                <div>
+                                </div>
+
+                                <div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <a
+                        href="index.html"
+                        class="project-arrow"
+                        aria-label="Xem website cá nhân"
+                    >
+                        →
+                    </a>
+
+
+                </article>
+
+
+            </div>
 
         </div>
 
+    </main>
 
 
-        <!-- =====================================================
-             EXPERIENCE
-        ====================================================== -->
 
-        <div
-            class="section-heading experience-heading"
-            id="experience"
-        >
+    <!-- =====================================================
+         BOTTOM CTA
+    ====================================================== -->
 
-            <div class="section-heading-bar"></div>
+    <section class="journey">
 
-            <div>
+        <div class="journey-box">
+
+
+            <div class="journey-content">
+
+                <div class="journey-label">
+                    HÀNH TRÌNH CỦA TÔI
+                </div>
 
                 <h2>
-                    Trải nghiệm thực tế
+                    Học hỏi từ mỗi trải nghiệm
                 </h2>
 
                 <p>
-                    Những trải nghiệm giúp tôi tiếp xúc
-                    với nhiều môi trường và cách làm việc khác nhau.
+                    Mỗi hoạt động và dự án đều giúp tôi
+                    khám phá thêm những kỹ năng mới,
+                    tích lũy kinh nghiệm và hoàn thiện bản thân.
                 </p>
 
             </div>
 
-        </div>
 
 
-
-        <div class="experience-grid">
-
-
-            <!-- WORK -->
-
-            <article class="experience-card">
-
-                <span class="experience-number">
-                    01
-                </span>
-
-                <div class="experience-icon">
-                    ◫
-                </div>
-
-                <div class="experience-info">
-
-                    <span class="experience-tag">
-                        WORK EXPERIENCE
-                    </span>
-
-                    <h3>
-                        Môi trường doanh nghiệp
-                    </h3>
-
-                    <p>
-                        Tôi từng có trải nghiệm làm việc
-                        trong doanh nghiệp sản xuất vật liệu da,
-                        hỗ trợ theo dõi đơn hàng, mẫu,
-                        tiến độ giao hàng và trao đổi với khách hàng.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- LOGISTICS -->
-
-            <article class="experience-card orange">
-
-                <span class="experience-number">
-                    02
-                </span>
-
-                <div class="experience-icon">
-                    ↗
-                </div>
-
-                <div class="experience-info">
-
-                    <span class="experience-tag">
-                        LOGISTICS
-                    </span>
-
-                    <h3>
-                        Vận chuyển & giao nhận
-                    </h3>
-
-                    <p>
-                        Trải nghiệm theo dõi tiến độ,
-                        phối hợp giao nhận và xử lý
-                        các công việc liên quan đến
-                        vận chuyển hàng hóa.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- CONTENT -->
-
-            <article class="experience-card purple">
-
-                <span class="experience-number">
-                    03
-                </span>
-
-                <div class="experience-icon">
-                    ✎
-                </div>
-
-                <div class="experience-info">
-
-                    <span class="experience-tag">
-                        CONTENT
-                    </span>
-
-                    <h3>
-                        Nội dung kinh doanh
-                    </h3>
-
-                    <p>
-                        Tôi từng hỗ trợ xây dựng nội dung
-                        cho một số hoạt động kinh doanh,
-                        từ đó rèn luyện cách trình bày
-                        và truyền tải thông tin.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- DEVELOPMENT -->
-
-            <article class="experience-card green">
-
-                <span class="experience-number">
-                    04
-                </span>
-
-                <div class="experience-icon">
-                    +
-                </div>
-
-                <div class="experience-info">
-
-                    <span class="experience-tag">
-                        PERSONAL DEVELOPMENT
-                    </span>
-
-                    <h3>
-                        Phát triển bản thân
-                    </h3>
-
-                    <p>
-                        Học tập và trải nghiệm ở nhiều môi trường
-                        giúp tôi cải thiện khả năng giao tiếp,
-                        thích nghi, làm việc nhóm và xử lý vấn đề.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="project-footer">
-
-    <div class="project-container project-footer-content">
-
-
-        <div class="project-footer-brand">
-
-            <strong>
-                HK
-            </strong>
-
-            <div>
-
-                <h4>
-                    HUỲNH CÔNG KHÁNH
-                </h4>
-
-                <p>
-                    Học tập • Khám phá • Phát triển
-                </p>
+            <div class="journey-actions">
+
+                <a
+                    href="skills.html"
+                    class="journey-btn primary"
+                >
+                    Xem kỹ năng &nbsp; →
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="journey-btn"
+                >
+                    ✉ &nbsp; Liên hệ với tôi
+                </a>
 
             </div>
 
-        </div>
-
-
-        <div class="project-footer-links">
-
-            <a href="index.html">
-                Trang chủ
-            </a>
-
-            <a href="about.html">
-                Giới thiệu
-            </a>
-
-            <a href="education.html">
-                Học tập
-            </a>
-
-            <a href="skills.html">
-                Kỹ năng
-            </a>
-
-            <a href="gallery.html">
-                Thư viện
-            </a>
-
-            <a href="index.html#contact">
-                Liên hệ
-            </a>
 
         </div>
 
+    </section>
 
-        <div class="project-copyright">
 
-            © 2026 Huỳnh Công Khánh
-            <br>
-            All rights reserved.
 
-        </div>
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
-    </div>
+    <footer>
 
-</footer>
+        © 2026 Huỳnh Công Khánh · Personal Portfolio
+
+    </footer>
 
 
 </body>
+
 </html>

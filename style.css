@@ -113,154 +113,197 @@ svg {
    03 - NAVBAR
 ========================================================== */
 
-/* =====================================================
-   HEADER - GIỐNG GIAO DIỆN TRANG CHỦ
-===================================================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .site-header {
     width: 100%;
-    height: 104px;
 
-    background: #ffffff;
+    /* MÀU NỀN HEADER */
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f5faff 45%,
+        #e8f5ff 100%
+    );
 
-    display: flex;
-    align-items: center;
+    border-bottom: 1px solid #dcecf8;
 
-    border-bottom: 1px solid #edf1f5;
-
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 1000;
 
-    box-shadow: 0 4px 18px rgba(17, 52, 86, 0.03);
-}
-
-
-/* KHUNG HEADER */
-
-.header-container {
-    width: min(1560px, 88%);
-    height: 100%;
-
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 40px;
+    /* Bóng rất nhẹ phía dưới */
+    box-shadow: 0 5px 25px rgba(8, 75, 122, 0.06);
 }
 
 
 /* =====================================================
-   LOGO
+   HEADER CONTAINER
 ===================================================== */
 
-.brand {
+.nav-container {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 72px;
+
     display: flex;
     align-items: center;
 
+    flex-wrap: nowrap;
+}
+
+
+/* =====================================================
+   LOGO + TÊN
+===================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
     gap: 16px;
 
     text-decoration: none;
+    white-space: nowrap;
 
     flex-shrink: 0;
 }
 
 
-/* HK */
+/* KHUNG CHỨA HÌNH LOGO */
 
-.brand-hk {
-    font-size: 48px;
-    line-height: 1;
+.logo-hk {
+    width: 92px;
+    height: 92px;
 
-    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    letter-spacing: -5px;
+    background: #591c6c;
 
-    color: #1597e8;
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    box-shadow:
+        0 10px 35px rgba(117, 149, 172, 0.14);
+}
+
+
+/* HÌNH LOGO */
+
+.logo-hk img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    /* Tăng/giảm nếu muốn logo nhỏ/lớn trong khung */
+    padding: 8px;
 }
 
 
 /* TÊN */
 
-.brand-name {
-    font-size: 17px;
+.logo-name {
+    color: #061424;
+
+    font-size: 19px;
     font-weight: 800;
 
-    color: #07376d;
+    line-height: 1.2;
 
     white-space: nowrap;
-
-    letter-spacing: -0.2px;
 }
 
 
 /* =====================================================
-   NAVIGATION
+   MENU
 ===================================================== */
 
 .main-nav {
+    margin-left: 150px
+
     display: flex;
     align-items: center;
-    justify-content: center;
 
-    gap: 31px;
+    gap: 30px;
 
-    height: 100%;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+
+    /* NHÍCH TOÀN BỘ MENU SANG PHẢI */
+    transform: translateX(200px);
 }
 
 
 .main-nav a {
     position: relative;
 
+    height: 64px;
+
+    padding: 0 18px;
+
     display: flex;
     align-items: center;
+    justify-content: center;
 
-    height: 100%;
+    color: #0d3564;
 
-    color: #102f57;
+    font-size: 16px;
+    font-weight: 700;
 
     text-decoration: none;
 
-    font-size: 14px;
-    font-weight: 700;
-
     white-space: nowrap;
 
-    transition: color 0.25s ease;
+    border-radius: 15px;
+
+    transition: 0.25s ease;
 }
 
 
+/* HOVER */
+
 .main-nav a:hover {
-    color: #078be3;
+    color: #0787dc;
+    background: #f2f8fe;
 }
 
 
 /* ACTIVE */
 
 .main-nav a.active {
-    color: #078be3;
+    color: #0787dc;
+
+    background: #eaf4fd;
 }
 
+
+/* GẠCH ACTIVE */
 
 .main-nav a.active::after {
     content: "";
 
     position: absolute;
 
-    left: 0;
-    right: 0;
+    left: 50%; /* 👈 CHỈNH DÒNG NÀY: tăng % để nhích sang phải */
+    bottom: -10px;
 
-    bottom: 23px;
+    transform: translateX(-50%);
 
-    margin: auto;
-
+    width: 34px;
     height: 4px;
 
-    border-radius: 20px;
+    background: #1498e7;
 
-    background: #0798ed;
+    border-radius: 10px;
 }
 
 
@@ -269,12 +312,11 @@ svg {
 ===================================================== */
 
 .contact-btn {
-    min-width: 158px;
-    height: 56px;
+    margin-left: 55px;
 
-    padding: 0 28px;
+    height: 68px;
 
-    border-radius: 50px;
+    padding: 0 31px;
 
     display: flex;
     align-items: center;
@@ -282,33 +324,29 @@ svg {
 
     gap: 10px;
 
-    flex-shrink: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #087fe2,
-            #0ba0e8
-        );
+    background: linear-gradient(
+        135deg,
+        #16a1eb,
+        #0878ca
+    );
 
     color: #ffffff;
 
+    font-size: 17px;
+    font-weight: 800;
+
     text-decoration: none;
 
-    font-size: 15px;
-    font-weight: 700;
+    white-space: nowrap;
+
+    border-radius: 36px;
 
     box-shadow:
-        0 12px 30px rgba(7, 139, 225, 0.18);
+        0 12px 32px rgba(8, 126, 205, 0.20);
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
+    flex-shrink: 0;
 
-
-.contact-btn span {
-    font-size: 18px;
+    transition: 0.25s ease;
 }
 
 
@@ -316,12 +354,153 @@ svg {
     transform: translateY(-2px);
 
     box-shadow:
-        0 15px 35px rgba(7, 139, 225, 0.27);
-        .nav.open .mobile-contact {
-    display: block;
-}
+        0 16px 36px rgba(8, 126, 205, 0.28);
 }
 
+
+.contact-icon {
+    font-size: 18px;
+
+    transform: rotate(-25deg);
+}
+
+
+/* ==================================================
+   MENU NAVIGATION
+================================================== */
+
+            .main-nav {
+                display: flex;
+                align-items: center;
+
+                gap: 6px;
+
+                margin-left: auto;
+            }
+
+
+            /* TỪNG MENU */
+
+            .main-nav a {
+                position: relative;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                height: 52px;
+                padding: 0 17px;
+
+                color: #163b68;
+
+                font-size: 15.5px;
+                font-weight: 700;
+
+                text-decoration: none;
+
+                border-radius: 12px;
+
+                transition:
+                    color 0.25s ease,
+                    background-color 0.25s ease,
+                    transform 0.25s ease;
+            }
+
+
+            /* ================= HOVER ================= */
+
+            .main-nav a:hover {
+                color: #078be0;
+                background: #f2f8fe;
+
+                transform: translateY(-1px);
+            }
+
+
+            /* ================= ACTIVE ================= */
+
+            .main-nav a.active {
+                color: #0d69a6;
+                background: #edf7ff;
+            }
+
+
+            /* GẠCH XANH ACTIVE */
+
+            .main-nav a.active::after {
+                content: "";
+
+                position: absolute;
+
+                left: 50%;
+                bottom: -7px;
+
+                transform: translateX(-50%);
+
+                width: 28px;
+                height: 3px;
+
+                background: #0b94e8;
+
+                border-radius: 20px;
+            }
+
+
+            /* ==================================================
+            NÚT LIÊN HỆ
+            ================================================== */
+
+            .contact-btn {
+                margin-left: 42px;
+
+                height: 54px;
+                padding: 0 25px;
+
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                gap: 9px;
+
+                color: #ffffff;
+
+                font-size: 15.5px;
+                font-weight: 800;
+
+                text-decoration: none;
+
+                background: linear-gradient(
+                    135deg,
+                    #169fec,
+                    #0879cc
+                );
+
+                border-radius: 28px;
+
+                box-shadow:
+                    0 10px 25px rgba(9, 132, 211, 0.20);
+
+                transition:
+                    transform 0.25s ease,
+                    box-shadow 0.25s ease;
+            }
+
+
+            /* ICON */
+
+            .contact-btn span:first-child {
+                font-size: 17px;
+            }
+
+
+            /* HOVER NÚT LIÊN HỆ */
+
+            .contact-btn:hover {
+                transform: translateY(-2px);
+
+                box-shadow:
+                    0 14px 30px rgba(9, 132, 211, 0.28);
+            }
 
 /* =====================================================
    TABLET
@@ -663,7 +842,7 @@ svg {
     position: absolute;
 
     width: 700px;
-    height: 700px;
+    height:700%;
 
     left: -360px;
     top: -350px;
@@ -1284,6 +1463,7 @@ svg {
     font-size: 14px;
 
     line-height: 1.75;
+
 }
 
 
@@ -1340,7 +1520,7 @@ svg {
 
     position: absolute;
 
-    width: 500px;
+    width: 800px;
     height: 500px;
 
     right: -310px;
@@ -1482,15 +1662,15 @@ svg {
 }
 
 
-.education-home-card h3 {
-
+.education-home-card h2 {
     margin-bottom: 11px;
 
     color: var(--navy);
 
-    font-size: 20px;
+    font-size: 30px;      /* kích thước giống bên EXP */
+    font-weight: 900;     /* in đậm */
 
-    font-weight: 900;
+    line-height: 1.2;
 }
 
 

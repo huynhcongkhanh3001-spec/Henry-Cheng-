@@ -2,40 +2,1173 @@
 <html lang="vi">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Huỳnh Công Khánh | Thư viện</title>
 
-    <title>
-        Thư viện | Huỳnh Công Khánh
-    </title>
+    <style>
+        /* =========================================================
+           RESET
+        ========================================================= */
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f9fd;
+            color: #0a3263;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .site-header {
+            position: absolute;
+            top: 18px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            width: min(1420px, 95%);
+            min-height: 70px;
+
+            margin: auto;
+            padding: 0 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            background: rgba(255, 255, 255, .95);
+
+            border: 1px solid rgba(255,255,255,.9);
+            border-radius: 18px;
+
+            box-shadow:
+                0 12px 35px rgba(9, 49, 95, .09);
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            flex-shrink: 0;
+        }
+
+        .logo-mark {
+            color: #0784e5;
+
+            font-size: 34px;
+            font-weight: 900;
+
+            line-height: 1;
+
+            letter-spacing: -4px;
+        }
+
+        .logo-name {
+            color: #0b3262;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+
+        /* NAVIGATION */
+
+        .menu {
+            display: flex;
+            align-items: center;
+
+            gap: 4px;
+        }
+
+        .menu a {
+            position: relative;
+
+            padding: 12px 14px;
+
+            border-radius: 10px;
+
+            color: #183b65;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            transition: .25s;
+        }
+
+        .menu a:hover {
+            color: #0878d8;
+            background: #edf6ff;
+        }
+
+        .menu a.active {
+            color: #0877d7;
+        }
+
+        .menu a.active::after {
+            content: "";
+
+            position: absolute;
+
+            left: 14px;
+            right: 14px;
+            bottom: 3px;
+
+            height: 3px;
+
+            border-radius: 10px;
+
+            background: #1494eb;
+        }
+
+
+        /* CONTACT */
+
+        .contact-nav {
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 11px 13px;
+
+            color: #075eb7;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        .contact-nav span {
+            font-size: 19px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 365px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(245,250,255,.99) 0%,
+                    rgba(245,250,255,.96) 30%,
+                    rgba(245,250,255,.72) 45%,
+                    rgba(245,250,255,.15) 73%,
+                    rgba(245,250,255,.04) 100%
+                ),
+                url("images/gallery/gallery-hero.jpg")
+                center / cover no-repeat;
+        }
+
+
+        /* fallback background */
+
+        .hero.fallback {
+            background:
+                radial-gradient(
+                    circle at 75% 30%,
+                    rgba(40, 149, 229, .22),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    120deg,
+                    #f8fbff 0%,
+                    #e7f3ff 45%,
+                    #c7e2f7 100%
+                );
+        }
+
+
+        /* HERO CURVE */
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: -5%;
+            right: -5%;
+            bottom: -190px;
+
+            height: 245px;
+
+            border-radius:
+                50% 50% 0 0 /
+                45% 45% 0 0;
+
+            background: #f5f9fd;
+
+            z-index: 2;
+        }
+
+
+        .hero-inner {
+            position: relative;
+            z-index: 5;
+
+            width: min(1360px, 90%);
+
+            margin: auto;
+
+            padding-top: 118px;
+        }
+
+
+        /* HERO LABEL */
+
+        .hero-label {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 8px;
+
+            color: #164879;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 2.5px;
+        }
+
+        .hero-label::after {
+            content: "";
+
+            width: 52px;
+            height: 1px;
+
+            background: #7ba2c6;
+        }
+
+
+        /* HERO TITLE */
+
+        .hero h1 {
+            color: #0a4ca5;
+
+            font-size: clamp(46px, 5vw, 65px);
+            font-weight: 800;
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+        }
+
+        .hero-description {
+            max-width: 550px;
+
+            margin-top: 14px;
+
+            color: #365b80;
+
+            font-size: 17px;
+
+            line-height: 1.55;
+        }
+
+
+        /* HERO SCRIPT */
+
+        .hero-script {
+            position: absolute;
+
+            right: 5%;
+            top: 120px;
+
+            color: rgba(255,255,255,.92);
+
+            font-family: cursive;
+
+            font-size: 29px;
+            font-style: italic;
+
+            line-height: 1.2;
+
+            text-align: center;
+
+            transform: rotate(-5deg);
+        }
+
+        .hero-script span {
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 45px;
+        }
+
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        .gallery-main {
+            position: relative;
+            z-index: 10;
+
+            margin-top: -55px;
+
+            padding-bottom: 55px;
+        }
+
+        .gallery-container {
+            width: min(1460px, 95%);
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           TOOLBAR
+        ========================================================= */
+
+        .gallery-toolbar {
+            margin-bottom: 26px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        /* FILTERS */
+
+        .filters {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            gap: 11px;
+        }
+
+        .filter-btn {
+            min-height: 45px;
+
+            padding: 0 21px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            border: 1px solid #dce9f6;
+            border-radius: 999px;
+
+            background: #eaf3fd;
+
+            color: #153f70;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: .25s;
+        }
+
+        .filter-btn .filter-icon {
+            font-size: 16px;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+
+            border-color: #9dc8ef;
+
+            background: #dceeff;
+        }
+
+        .filter-btn.active {
+            color: #ffffff;
+
+            border-color: #0876d8;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #148fe9,
+                    #0759bc
+                );
+
+            box-shadow:
+                0 8px 18px rgba(5, 96, 190, .22);
+        }
+
+
+        /* SEARCH */
+
+        .search-box {
+            width: 225px;
+            min-width: 225px;
+            height: 45px;
+
+            padding: 0 17px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            border: 1px solid #dbe6f1;
+            border-radius: 999px;
+
+            background: rgba(255,255,255,.95);
+
+            box-shadow:
+                0 5px 18px rgba(10, 50, 95, .04);
+        }
+
+        .search-icon {
+            color: #174a7c;
+
+            font-size: 18px;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            color: #163c68;
+
+            font-size: 12px;
+        }
+
+        .search-box input::placeholder {
+            color: #91a2b6;
+        }
+
+
+        /* =========================================================
+           GALLERY GRID
+        ========================================================= */
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(6, minmax(0, 1fr));
+
+            gap: 17px;
+        }
+
+
+        /* =========================================================
+           GALLERY CARD
+        ========================================================= */
+
+        .gallery-card {
+            min-width: 0;
+
+            overflow: hidden;
+
+            border: 1px solid #e0eaf4;
+            border-radius: 13px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 8px 25px rgba(11, 51, 96, .065);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease,
+                border-color .3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+
+            border-color: #b9d8f3;
+
+            box-shadow:
+                0 17px 36px rgba(11, 51, 96, .13);
+        }
+
+
+        /* IMAGE */
+
+        .gallery-image {
+            position: relative;
+
+            height: 170px;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dceeff,
+                    #b8d9f3
+                );
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: transform .45s ease;
+        }
+
+        .gallery-card:hover .gallery-image img {
+            transform: scale(1.06);
+        }
+
+
+        /* PLACEHOLDER */
+
+        .image-placeholder {
+            position: absolute;
+
+            inset: 0;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            gap: 9px;
+
+            background:
+                radial-gradient(
+                    circle at 30% 20%,
+                    rgba(255,255,255,.7),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #e8f4ff,
+                    #b9daf5
+                );
+
+            color: #1a67af;
+        }
+
+        .image-placeholder .placeholder-icon {
+            font-size: 36px;
+        }
+
+        .image-placeholder span:last-child {
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* IMAGE OVERLAY */
+
+        .image-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 0;
+
+            background:
+                rgba(3, 38, 76, .30);
+
+            transition: .3s;
+        }
+
+        .gallery-image:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .view-icon {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.94);
+
+            color: #075eb8;
+
+            font-size: 19px;
+
+            transform: scale(.8);
+
+            transition: .3s;
+        }
+
+        .gallery-image:hover .view-icon {
+            transform: scale(1);
+        }
+
+
+        /* =========================================================
+           CARD INFO
+        ========================================================= */
+
+        .gallery-info {
+            min-height: 80px;
+
+            padding: 10px 13px 11px;
+        }
+
+
+        /* CATEGORY */
+
+        .gallery-category {
+            margin-bottom: 4px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 6px;
+
+            color: #1164bc;
+
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .gallery-category.love {
+            color: #ef5a64;
+        }
+
+        .gallery-category .cat-icon {
+            font-size: 13px;
+        }
+
+
+        /* TITLE */
+
+        .gallery-bottom {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 8px;
+        }
+
+        .gallery-title {
+            margin-bottom: 3px;
+
+            color: #123b6c;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            line-height: 1.25;
+        }
+
+        .gallery-date {
+            color: #91a2b6;
+
+            font-size: 9px;
+        }
+
+        .open-symbol {
+            flex-shrink: 0;
+
+            color: #1471c9;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================================
+           EMPTY RESULT
+        ========================================================= */
+
+        .empty-result {
+            display: none;
+
+            padding: 60px 20px;
+
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            color: #63809d;
+        }
+
+        .empty-result .empty-icon {
+            margin-bottom: 10px;
+
+            font-size: 42px;
+        }
+
+        .empty-result h3 {
+            margin-bottom: 4px;
+
+            color: #123d6d;
+
+            font-size: 18px;
+        }
+
+        .empty-result p {
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           LOAD MORE
+        ========================================================= */
+
+        .load-more-wrap {
+            margin-top: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 22px;
+        }
+
+        .load-more-wrap::before,
+        .load-more-wrap::after {
+            content: "";
+
+            width: 60px;
+            height: 1px;
+
+            background: #78b8ec;
+        }
+
+        .load-more {
+            min-width: 245px;
+
+            padding: 15px 27px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 22px;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #138ce7,
+                    #0754b7
+                );
+
+            color: #ffffff;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            box-shadow:
+                0 9px 23px rgba(7, 91, 187, .22);
+
+            transition: .3s;
+        }
+
+        .load-more:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 14px 30px rgba(7, 91, 187, .30);
+        }
+
+
+        /* =========================================================
+           LIGHTBOX
+        ========================================================= */
+
+        .lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            padding: 30px;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                rgba(3, 22, 43, .90);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+
+            max-width: 1100px;
+            max-height: 90vh;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+
+            border-radius: 17px;
+
+            background: white;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.35);
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 75vh;
+
+            display: block;
+
+            object-fit: contain;
+
+            background: #eef5fb;
+        }
+
+        .lightbox-info {
+            padding: 16px 20px;
+
+            background: #ffffff;
+        }
+
+        .lightbox-info h3 {
+            color: #0b376a;
+
+            font-size: 17px;
+        }
+
+        .lightbox-info p {
+            margin-top: 3px;
+
+            color: #7890a8;
+
+            font-size: 11px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+
+            top: 13px;
+            right: 13px;
+
+            z-index: 5;
+
+            width: 39px;
+            height: 39px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.93);
+
+            color: #123c69;
+
+            font-size: 21px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,.12);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 27px 20px;
+
+            background: #062e5b;
+
+            color: rgba(255,255,255,.70);
+
+            text-align: center;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE - 1250
+        ========================================================= */
+
+        @media (max-width: 1250px) {
+
+            .navbar {
+                width: 97%;
+                padding: 0 18px;
+            }
+
+            .menu {
+                gap: 0;
+            }
+
+            .menu a {
+                padding: 11px 9px;
+            }
+
+            .gallery-grid {
+                grid-template-columns:
+                    repeat(4, minmax(0, 1fr));
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE - TABLET
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .site-header {
+                position: relative;
+
+                top: 0;
+
+                padding: 10px;
+            }
+
+            .navbar {
+                width: 100%;
+
+                padding: 13px 17px;
+
+                flex-wrap: wrap;
+            }
+
+            .menu {
+                order: 3;
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+            }
+
+            .menu a {
+                flex-shrink: 0;
+            }
+
+            .hero {
+                min-height: 360px;
+            }
+
+            .hero-inner {
+                padding-top: 60px;
+            }
+
+            .hero-script {
+                display: none;
+            }
+
+            .gallery-main {
+                margin-top: -45px;
+            }
+
+            .gallery-toolbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .gallery-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE - MOBILE
+        ========================================================= */
+
+        @media (max-width: 650px) {
+
+            .logo-mark {
+                font-size: 28px;
+            }
+
+            .logo-name {
+                font-size: 12px;
+            }
+
+            .contact-nav {
+                font-size: 11px;
+            }
+
+            .hero {
+                min-height: 390px;
+
+                background:
+                    linear-gradient(
+                        rgba(245,250,255,.94),
+                        rgba(245,250,255,.82)
+                    ),
+                    url("images/gallery/gallery-hero.jpg")
+                    center / cover no-repeat;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-description {
+                max-width: 95%;
+
+                font-size: 15px;
+            }
+
+            .gallery-main {
+                margin-top: -35px;
+            }
+
+            .filters {
+                flex-wrap: nowrap;
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                padding-bottom: 5px;
+            }
+
+            .filter-btn {
+                flex-shrink: 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 11px;
+            }
+
+            .gallery-image {
+                height: 145px;
+            }
+
+            .gallery-info {
+                min-height: 78px;
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE - SMALL PHONE
+        ========================================================= */
+
+        @media (max-width: 430px) {
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-image {
+                height: 220px;
+            }
+
+            .load-more-wrap::before,
+            .load-more-wrap::after {
+                display: none;
+            }
+
+            .load-more {
+                width: 100%;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
 <header class="site-header">
 
-    <div class="container navbar">
+    <div class="navbar">
+
 
         <a href="index.html" class="logo">
 
-            <span class="logo-hk">
+            <span class="logo-mark">
                 HK
             </span>
 
@@ -46,525 +1179,7 @@
         </a>
 
 
-        <nav>
-
-            <ul class="nav-links">
-
-                <li>
-                    <a href="index.html">
-                        Trang chủ
-                    </a>
-                </li>
-
-                <li>
-                    <a href="about.html">
-                        Giới thiệu
-                    </a>
-                </li>
-
-                <li>
-                    <a href="education.html">
-                        Học tập
-                    </a>
-                </li>
-
-                <li>
-                    <a href="skills.html">
-                        Kỹ năng
-                    </a>
-                </li>
-
-                <li>
-                    <a href="projects.html">
-                        Hoạt động
-                    </a>
-                </li>
-
-                <li>
-                    <a href="interests.html">
-                        Sở thích
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="gallery.html"
-                        class="active"
-                    >
-                        Thư viện
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-
-        <a
-            href="index.html#contact"
-            class="contact-nav"
-        >
-            ✈ Liên hệ
-        </a>
-
-    </div>
-
-</header>
-
-
-
-<main>
-
-
-<!-- =====================================================
-     GALLERY HERO
-===================================================== -->
-
-<section class="gallery-hero">
-
-    <div class="container gallery-hero-container">
-
-
-        <!-- LEFT -->
-
-        <div class="gallery-hero-content">
-
-            <div class="gallery-eyebrow">
-
-                <span>
-                    GALLERY
-                </span>
-
-                <i></i>
-
-            </div>
-
-
-            <h1>
-                Thư viện
-                <span>
-                    hình ảnh
-                </span>
-            </h1>
-
-
-            <p>
-                Một số hình ảnh liên quan đến hành trình
-                học tập, hoạt động và sở thích của tôi.
-            </p>
-
-        </div>
-
-
-
-        <!-- RIGHT CAMERA -->
-
-        <div class="gallery-camera-area">
-
-            <div class="camera-orbit orbit-a"></div>
-
-            <div class="camera-orbit orbit-b"></div>
-
-
-            <div class="camera-photo photo-one">
-                ◇
-            </div>
-
-            <div class="camera-photo photo-two">
-                ◇
-            </div>
-
-            <div class="camera-photo photo-three">
-                ◇
-            </div>
-
-
-            <div class="camera-body">
-
-                <div class="camera-top"></div>
-
-                <div class="camera-lens">
-
-                    <div class="camera-lens-inner"></div>
-
-                </div>
-
-            </div>
-
-
-            <span class="camera-dot camera-dot-one"></span>
-
-            <span class="camera-dot camera-dot-two"></span>
-
-            <span class="camera-dot camera-dot-three"></span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     GALLERY CONTENT
-===================================================== -->
-
-<section class="gallery-page-section">
-
-    <div class="container">
-
-
-        <!-- =================================================
-             FILTER BUTTONS
-        ================================================= -->
-
-        <div class="gallery-filters">
-
-            <button
-                type="button"
-                class="gallery-filter active"
-                data-filter="all"
-            >
-                <span>▦</span>
-                Tất cả
-            </button>
-
-
-            <button
-                type="button"
-                class="gallery-filter"
-                data-filter="study"
-            >
-                <span>▣</span>
-                Học tập
-            </button>
-
-
-            <button
-                type="button"
-                class="gallery-filter"
-                data-filter="technology"
-            >
-                <span>▰</span>
-                Công nghệ
-            </button>
-
-
-            <button
-                type="button"
-                class="gallery-filter"
-                data-filter="aviation"
-            >
-                <span>✈</span>
-                Hàng không
-            </button>
-
-
-            <button
-                type="button"
-                class="gallery-filter"
-                data-filter="activity"
-            >
-                <span>♟</span>
-                Hoạt động
-            </button>
-
-
-            <button
-                type="button"
-                class="gallery-filter"
-                data-filter="interest"
-            >
-                <span>◆</span>
-                Sở thích
-            </button>
-
-        </div>
-
-
-
-        <!-- =================================================
-             GALLERY GRID
-        ================================================= -->
-
-        <div class="gallery-showcase-grid">
-
-
-            <!-- ================= HỌC TẬP ================= -->
-
-            <article
-                class="gallery-showcase-card"
-                data-category="study"
-            >
-
-                <div class="gallery-image">
-
-                    <img
-                        src="images/gallery-study.jpg"
-                        alt="Hình ảnh học tập"
-                    >
-
-                </div>
-
-
-                <div class="gallery-card-info">
-
-                    <div class="gallery-card-icon">
-                        ▣
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Học tập
-                        </h3>
-
-                        <p>
-                            Những khoảnh khắc
-                            trong quá trình học tập.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ================= TECHNOLOGY ================= -->
-
-            <article
-                class="gallery-showcase-card"
-                data-category="technology"
-            >
-
-                <div class="gallery-image">
-
-                    <img
-                        src="images/gallery-technology.jpg"
-                        alt="Hình ảnh công nghệ"
-                    >
-
-                </div>
-
-
-                <div class="gallery-card-info">
-
-                    <div class="gallery-card-icon">
-                        ▰
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Công nghệ
-                        </h3>
-
-                        <p>
-                            Các thiết bị và
-                            dự án công nghệ.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ================= AVIATION ================= -->
-
-            <article
-                class="gallery-showcase-card"
-                data-category="aviation"
-            >
-
-                <div class="gallery-image">
-
-                    <img
-                        src="images/gallery-aviation.jpg"
-                        alt="Hình ảnh hàng không"
-                    >
-
-                </div>
-
-
-                <div class="gallery-card-info">
-
-                    <div class="gallery-card-icon">
-                        ✈
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Hàng không
-                        </h3>
-
-                        <p>
-                            Hình ảnh liên quan
-                            đến lĩnh vực hàng không.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ================= ACTIVITY ================= -->
-
-            <article
-                class="gallery-showcase-card"
-                data-category="activity"
-            >
-
-                <div class="gallery-image">
-
-                    <img
-                        src="images/gallery-activity.jpg"
-                        alt="Hoạt động cá nhân"
-                    >
-
-                </div>
-
-
-                <div class="gallery-card-info">
-
-                    <div class="gallery-card-icon">
-                        ♟
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Hoạt động cá nhân
-                        </h3>
-
-                        <p>
-                            Các hoạt động,
-                            câu lạc bộ và trải nghiệm.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ================= INTEREST 1 ================= -->
-
-            <article
-                class="gallery-showcase-card"
-                data-category="interest"
-            >
-
-                <div class="gallery-image">
-
-                    <img
-                        src="images/gallery-interest.jpg"
-                        alt="Sở thích"
-                    >
-
-                </div>
-
-
-                <div class="gallery-card-info">
-
-                    <div class="gallery-card-icon">
-                        ●
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Sở thích
-                        </h3>
-
-                        <p>
-                            Những nơi tôi đã đi
-                            và yêu thích.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ================= JOURNEY ================= -->
-
-            <article
-                class="gallery-showcase-card"
-                data-category="activity"
-            >
-
-                <div class="gallery-image">
-
-                    <img
-                        src="images/gallery-journey.jpg"
-                        alt="Hành trình sinh viên"
-                    >
-
-                </div>
-
-
-                <div class="gallery-card-info">
-
-                    <div class="gallery-card-icon">
-                        ◉
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Hành trình sinh viên
-                        </h3>
-
-                        <p>
-                            Những khoảnh khắc
-                            đáng nhớ.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="site-footer">
-
-    <div class="container">
-
-        <strong>
-            HUỲNH CÔNG KHÁNH
-        </strong>
-
-
-        <div class="footer-links">
+        <nav class="menu">
 
             <a href="index.html">
                 Trang chủ
@@ -590,82 +1205,1578 @@
                 Sở thích
             </a>
 
-            <a href="gallery.html">
+            <a href="gallery.html" class="active">
                 Thư viện
             </a>
 
-            <a href="index.html#contact">
-                Liên hệ
-            </a>
+        </nav>
+
+
+        <a href="contact.html" class="contact-nav">
+
+            <span>✈</span>
+
+            Liên hệ
+
+        </a>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="hero">
+
+    <div class="hero-inner">
+
+
+        <div class="hero-label">
+            GALLERY
+        </div>
+
+
+        <h1>
+            Thư viện hình ảnh
+        </h1>
+
+
+        <p class="hero-description">
+
+            Một số hình ảnh ghi lại hành trình học tập,
+            hoạt động, công nghệ và những trải nghiệm
+            đáng nhớ của tôi.
+
+        </p>
+
+
+        <div class="hero-script">
+
+            Capture<br>
+            Moments<br>
+            Explore More
+
+            <span>↗</span>
 
         </div>
 
 
-        <p>
-            © 2026 Huỳnh Công Khánh · Website cá nhân
-        </p>
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<main class="gallery-main">
+
+    <div class="gallery-container">
+
+
+        <!-- =====================================================
+             TOOLBAR
+        ====================================================== -->
+
+        <div class="gallery-toolbar">
+
+
+            <div class="filters">
+
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all"
+                >
+
+                    <span class="filter-icon">
+                        ▦
+                    </span>
+
+                    Tất cả
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="study"
+                >
+
+                    <span class="filter-icon">
+                        🎓
+                    </span>
+
+                    Học tập
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="technology"
+                >
+
+                    <span class="filter-icon">
+                        ▣
+                    </span>
+
+                    Công nghệ
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="aviation"
+                >
+
+                    <span class="filter-icon">
+                        ✈
+                    </span>
+
+                    Hàng không
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="activity"
+                >
+
+                    <span class="filter-icon">
+                        ♟
+                    </span>
+
+                    Hoạt động
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="interest"
+                >
+
+                    <span class="filter-icon">
+                        ♡
+                    </span>
+
+                    Sở thích
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="text"
+                    id="gallerySearch"
+                    placeholder="Tìm kiếm hình ảnh..."
+                >
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             GRID
+        ====================================================== -->
+
+        <section class="gallery-grid" id="galleryGrid">
+
+
+            <!-- 01 -->
+
+            <article
+                class="gallery-card"
+                data-category="study"
+                data-title="Góc học tập"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-01.jpg"
+                        alt="Góc học tập"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            🎓
+                        </span>
+
+                        <span>
+                            GÓC HỌC TẬP
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            🎓
+                        </span>
+
+                        Học tập
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Góc học tập
+                            </h3>
+
+                            <span class="gallery-date">
+                                15/08/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 02 -->
+
+            <article
+                class="gallery-card"
+                data-category="technology"
+                data-title="Lập trình"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-02.jpg"
+                        alt="Lập trình"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            💻
+                        </span>
+
+                        <span>
+                            LẬP TRÌNH
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            ▣
+                        </span>
+
+                        Công nghệ
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Lập trình
+                            </h3>
+
+                            <span class="gallery-date">
+                                10/08/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 03 -->
+
+            <article
+                class="gallery-card"
+                data-category="aviation"
+                data-title="Aviation"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-03.jpg"
+                        alt="Aviation"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            ✈
+                        </span>
+
+                        <span>
+                            AVIATION
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            ✈
+                        </span>
+
+                        Hàng không
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Aviation
+                            </h3>
+
+                            <span class="gallery-date">
+                                05/08/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 04 -->
+
+            <article
+                class="gallery-card"
+                data-category="technology"
+                data-title="Dự án UAV"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-04.jpg"
+                        alt="Dự án UAV"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            ✈
+                        </span>
+
+                        <span>
+                            UAV
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            ▣
+                        </span>
+
+                        Công nghệ
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Dự án UAV
+                            </h3>
+
+                            <span class="gallery-date">
+                                20/07/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 05 -->
+
+            <article
+                class="gallery-card"
+                data-category="activity"
+                data-title="Hoạt động câu lạc bộ"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-05.jpg"
+                        alt="Hoạt động câu lạc bộ"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            👥
+                        </span>
+
+                        <span>
+                            HOẠT ĐỘNG
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            👥
+                        </span>
+
+                        Hoạt động
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Hoạt động CLB
+                            </h3>
+
+                            <span class="gallery-date">
+                                12/07/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 06 -->
+
+            <article
+                class="gallery-card"
+                data-category="interest"
+                data-title="Nhiếp ảnh"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-06.jpg"
+                        alt="Nhiếp ảnh"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            📷
+                        </span>
+
+                        <span>
+                            NHIẾP ẢNH
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category love">
+
+                        <span class="cat-icon">
+                            ♥
+                        </span>
+
+                        Sở thích
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Nhiếp ảnh
+                            </h3>
+
+                            <span class="gallery-date">
+                                01/07/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 07 -->
+
+            <article
+                class="gallery-card"
+                data-category="aviation"
+                data-title="Trên bầu trời"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-07.jpg"
+                        alt="Trên bầu trời"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            ✈
+                        </span>
+
+                        <span>
+                            BẦU TRỜI
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            ✈
+                        </span>
+
+                        Hàng không
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Trên bầu trời
+                            </h3>
+
+                            <span class="gallery-date">
+                                28/08/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 08 -->
+
+            <article
+                class="gallery-card"
+                data-category="study"
+                data-title="Tài liệu học tập"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-08.jpg"
+                        alt="Tài liệu học tập"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            📚
+                        </span>
+
+                        <span>
+                            HỌC TẬP
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            🎓
+                        </span>
+
+                        Học tập
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Tài liệu học tập
+                            </h3>
+
+                            <span class="gallery-date">
+                                20/06/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 09 -->
+
+            <article
+                class="gallery-card"
+                data-category="activity"
+                data-title="Kinh nghiệm doanh nghiệp"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-09.jpg"
+                        alt="Kinh nghiệm doanh nghiệp"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            💼
+                        </span>
+
+                        <span>
+                            TRẢI NGHIỆM
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            👥
+                        </span>
+
+                        Hoạt động
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Kinh nghiệm doanh nghiệp
+                            </h3>
+
+                            <span class="gallery-date">
+                                15/06/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 10 -->
+
+            <article
+                class="gallery-card"
+                data-category="technology"
+                data-title="Trí tuệ nhân tạo"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-10.jpg"
+                        alt="Trí tuệ nhân tạo"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            AI
+                        </span>
+
+                        <span>
+                            ARTIFICIAL INTELLIGENCE
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            ▣
+                        </span>
+
+                        Công nghệ
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Trí tuệ nhân tạo
+                            </h3>
+
+                            <span class="gallery-date">
+                                10/06/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 11 -->
+
+            <article
+                class="gallery-card"
+                data-category="aviation"
+                data-title="Sân bay"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-11.jpg"
+                        alt="Sân bay"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            ✈
+                        </span>
+
+                        <span>
+                            AIRPORT
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category">
+
+                        <span class="cat-icon">
+                            ✈
+                        </span>
+
+                        Hàng không
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Sân bay
+                            </h3>
+
+                            <span class="gallery-date">
+                                05/06/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 12 -->
+
+            <article
+                class="gallery-card"
+                data-category="interest"
+                data-title="Khoảnh khắc đời thường"
+            >
+
+                <div
+                    class="gallery-image"
+                    onclick="openLightbox(this)"
+                >
+
+                    <img
+                        src="images/gallery/gallery-12.jpg"
+                        alt="Khoảnh khắc đời thường"
+                        onerror="imageError(this)"
+                    >
+
+                    <div class="image-placeholder">
+
+                        <span class="placeholder-icon">
+                            📷
+                        </span>
+
+                        <span>
+                            MOMENTS
+                        </span>
+
+                    </div>
+
+                    <div class="image-overlay">
+
+                        <span class="view-icon">
+                            ⤢
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-category love">
+
+                        <span class="cat-icon">
+                            ♥
+                        </span>
+
+                        Sở thích
+
+                    </div>
+
+
+                    <div class="gallery-bottom">
+
+                        <div>
+
+                            <h3 class="gallery-title">
+                                Khoảnh khắc đời thường
+                            </h3>
+
+                            <span class="gallery-date">
+                                01/06/2026
+                            </span>
+
+                        </div>
+
+                        <span class="open-symbol">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- NO RESULTS -->
+
+            <div class="empty-result" id="emptyResult">
+
+                <div class="empty-icon">
+                    ⌕
+                </div>
+
+                <h3>
+                    Không tìm thấy hình ảnh
+                </h3>
+
+                <p>
+                    Hãy thử từ khóa hoặc danh mục khác.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             LOAD MORE
+        ====================================================== -->
+
+        <div class="load-more-wrap">
+
+            <button class="load-more" id="loadMore">
+
+                Xem thêm hình ảnh
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
 
     </div>
+
+</main>
+
+
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div class="lightbox" id="lightbox">
+
+    <div class="lightbox-content">
+
+
+        <button
+            class="close-lightbox"
+            onclick="closeLightbox()"
+        >
+            ×
+        </button>
+
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+        >
+
+
+        <div class="lightbox-info">
+
+            <h3 id="lightboxTitle">
+                Hình ảnh
+            </h3>
+
+            <p>
+                Thư viện hình ảnh · Huỳnh Công Khánh
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 Huỳnh Công Khánh · Personal Portfolio
 
 </footer>
 
 
 
-<!-- =====================================================
-     GALLERY FILTER SCRIPT
-===================================================== -->
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
-const filterButtons =
-    document.querySelectorAll(".gallery-filter");
+    /* =====================================================
+       IMAGE FALLBACK
+    ====================================================== */
 
-const galleryCards =
-    document.querySelectorAll(".gallery-showcase-card");
+    function imageError(img) {
 
+        img.style.display = "none";
 
-filterButtons.forEach(button => {
+        const placeholder =
+            img.parentElement.querySelector(".image-placeholder");
 
-    button.addEventListener("click", () => {
+        if (placeholder) {
+            placeholder.style.display = "flex";
+        }
 
-        filterButtons.forEach(item => {
-            item.classList.remove("active");
-        });
-
-        button.classList.add("active");
-
-
-        const filter =
-            button.dataset.filter;
+    }
 
 
-        galleryCards.forEach(card => {
 
-            const category =
-                card.dataset.category;
+    /* =====================================================
+       HERO FALLBACK
+    ====================================================== */
+
+    const hero = document.getElementById("hero");
+
+    const heroTestImage = new Image();
+
+    heroTestImage.src =
+        "images/gallery/gallery-hero.jpg";
+
+    heroTestImage.onerror = function () {
+
+        hero.classList.add("fallback");
+
+    };
 
 
-            if (
-                filter === "all" ||
-                category === filter
-            ) {
 
-                card.classList.remove("gallery-hidden");
+    /* =====================================================
+       FILTER
+    ====================================================== */
 
-            } else {
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
 
-                card.classList.add("gallery-hidden");
+    const cards =
+        document.querySelectorAll(".gallery-card");
 
-            }
+    const searchInput =
+        document.getElementById("gallerySearch");
+
+    const emptyResult =
+        document.getElementById("emptyResult");
+
+
+    let currentFilter = "all";
+
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+
+            filterButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+
+            this.classList.add("active");
+
+
+            currentFilter =
+                this.dataset.filter;
+
+
+            filterGallery();
 
         });
 
     });
 
-});
+
+
+    /* =====================================================
+       SEARCH
+    ====================================================== */
+
+    searchInput.addEventListener(
+        "input",
+        filterGallery
+    );
+
+
+
+    /* =====================================================
+       FILTER FUNCTION
+    ====================================================== */
+
+    function filterGallery() {
+
+        const keyword =
+            searchInput.value
+                .toLowerCase()
+                .trim();
+
+
+        let visibleCount = 0;
+
+
+        cards.forEach(card => {
+
+            const category =
+                card.dataset.category;
+
+            const title =
+                card.dataset.title
+                    .toLowerCase();
+
+
+            const matchCategory =
+                currentFilter === "all" ||
+                category === currentFilter;
+
+
+            const matchSearch =
+                title.includes(keyword);
+
+
+            if (
+                matchCategory &&
+                matchSearch
+            ) {
+
+                card.style.display = "";
+
+                visibleCount++;
+
+            }
+
+            else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+
+        if (visibleCount === 0) {
+
+            emptyResult.style.display =
+                "block";
+
+        }
+
+        else {
+
+            emptyResult.style.display =
+                "none";
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       LIGHTBOX
+    ====================================================== */
+
+    function openLightbox(element) {
+
+        const img =
+            element.querySelector("img");
+
+
+        if (
+            !img ||
+            img.style.display === "none"
+        ) {
+
+            return;
+
+        }
+
+
+        const card =
+            element.closest(".gallery-card");
+
+
+        const title =
+            card.dataset.title;
+
+
+        document.getElementById(
+            "lightboxImage"
+        ).src = img.src;
+
+
+        document.getElementById(
+            "lightboxTitle"
+        ).textContent = title;
+
+
+        document.getElementById(
+            "lightbox"
+        ).classList.add("active");
+
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+
+    function closeLightbox() {
+
+        document.getElementById(
+            "lightbox"
+        ).classList.remove("active");
+
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+
+    /* CLOSE WHEN CLICK BACKGROUND */
+
+    document.getElementById(
+        "lightbox"
+    ).addEventListener(
+        "click",
+        function(event) {
+
+            if (event.target === this) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+
+    /* ESC TO CLOSE */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Escape") {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       LOAD MORE BUTTON
+    ====================================================== */
+
+    document.getElementById(
+        "loadMore"
+    ).addEventListener(
+        "click",
+        function() {
+
+            this.innerHTML =
+                "Đã hiển thị tất cả hình ảnh ✓";
+
+            this.style.opacity = ".75";
+
+            this.style.cursor = "default";
+
+        }
+    );
 
 </script>
 
 
 </body>
+
 </html>
