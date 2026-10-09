@@ -6372,3 +6372,50 @@ svg {
     }
 
 }
+/* =====================================
+   FIX GẠCH CHÂN TOÀN BỘ MENU
+===================================== */
+
+.main-nav a,
+.nav-links a {
+    position: relative;
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* Gạch chân nằm dưới chữ */
+.main-nav a::after,
+.nav-links a::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    top: auto !important;
+    bottom: 2px !important;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 3px;
+
+    background: #1498e7;
+    border-radius: 10px;
+
+    transition: width 0.3s ease;
+    pointer-events: none;
+}
+
+/* Hiện gạch chân khi chọn hoặc rê chuột */
+.main-nav a.active::after,
+.main-nav a:hover::after,
+.nav-links a.active::after,
+.nav-links a:hover::after {
+    width: 60px;
+    max-width: calc(100% - 12px);
+}
+
+/* Đảm bảo chữ không chạm gạch chân */
+.main-nav a,
+.nav-links a {
+    padding-bottom: 14px;
+}
